@@ -218,6 +218,7 @@ Mnemosyne is built on three principles:
 **XPACEGEMS LLC** — Independent AI software lab  
 **Headquarters:** 2932 NW 72 AVE, Miami, FL 33122, USA  
 **Founder & Lead Architect:** Tony Trochet  
+**LinkedIn:** [Tony Trochet](https://www.linkedin.com/in/tony-t-19544650/)  
 **GitHub:** [@yaka0007](https://github.com/yaka0007)
 
 > Built with Claude (Anthropic) · Antigravity (Google DeepMind) · Cursor  
