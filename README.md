@@ -47,11 +47,11 @@ Most AI tools are fragmented: one app for chat, another for notes, another for t
 |--------|-------------|
 | 🧠 **MnemoBrain** | Multi-model AI conversation hub — Claude, Ollama (local), OpenAI-compatible |
 | 🎭 **Soul Studio** | AI identity builder — 16 MBTI archetypes, OCEAN personality model, custom soul profiles |
+| 🌐 **MnemoDex** | Universal index of 16 MBTI archetypes and custom AI souls |
 | 🗄️ **MnemoVault** | Encrypted local knowledge vault with full-text search and file management |
 | 🔄 **MnemoSync** | Multi-agent orchestration with P2P Shadow Sync and real-time coordination |
 | 🛡️ **Policy Studio** | AI governance layer with FGAC (Fine-Grained Access Control) |
 | 📊 **MnemoStrategist** | AI-powered task planner with Kanban, templates, and voice bridge |
-| 🌐 **MnemoDex** | Universal index of 16 MBTI archetypes and custom AI souls |
 | ⚡ **MnemoForge** | AI-driven app generator — scaffold full Mnemosyne modules from a prompt |
 | 🔗 **NexusGraph** | Knowledge graph visualization |
 | 🎯 **Cockpit** | Personalized AI dashboard with modular widgets |
