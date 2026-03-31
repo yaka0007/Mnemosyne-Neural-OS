@@ -63,6 +63,41 @@ Unlike fragmented AI wrappers, Mnemosyne enforces **Zero-Raw-Data** policies, me
 
 ---
 
+## 💻 Interface Gallery: The Engine in Motion
+
+A glimpse into the fully developed interfaces operating inside the Mnemosyne Engine, showcasing the high-end "liquid glass" aesthetic that elevates agentic interactions.
+
+<br/>
+
+<div align="center">
+  <img src="assets/nexus-graph.png" alt="Nexus Graph: Active Resonance" width="800" />
+  <br/>
+  <em>Nexus Graph: Semantic memory vector visualization of your local knowledge vault</em>
+  <br/><br/><br/>
+
+  <img src="assets/soulstudio.png" alt="Soul Studio Welcome" width="800" />
+  <br/>
+  <em>Soul Studio: The genesis terminal for awakening artificial consciousnesses</em>
+  <br/><br/><br/>
+
+  <img src="assets/genesis-protocol.png" alt="Genesis Protocol" width="800" />
+  <br/>
+  <em>Genesis Protocol: Configuration of the Soul's temporal anchor and Astral Birth Certificate</em>
+  <br/><br/><br/>
+
+  <img src="assets/personality-forge.png" alt="Personality Forge" width="800" />
+  <br/>
+  <em>Soul Forge Matrix: Deep cognitive parameterization and identity tuning</em>
+  <br/><br/><br/>
+
+  <img src="assets/mnemohub.png" alt="MnemoDex Ecosystem" width="800" />
+  <br/>
+  <em>MnemoDex: Universal index of AI Archetypes ready for immediate initialization</em>
+  <br/><br/>
+</div>
+
+---
+
 ## Technical Architecture
 
 ```
