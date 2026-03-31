@@ -51,8 +51,9 @@ Most AI tools are fragmented: one app for chat, another for notes, another for t
 | 🗄️ **MnemoVault** | Encrypted local knowledge vault with full-text search and file management |
 | 🔄 **MnemoSync** | Multi-agent orchestration with P2P Shadow Sync and real-time coordination |
 | 🛡️ **Policy Studio** | AI governance layer with FGAC (Fine-Grained Access Control) |
-| 📊 **MnemoStrategist** | AI-powered task planner with Kanban, templates, and voice bridge |
+| 📊 **MnemoStrategist** | AI planner integrating the BMAD 2.0 system for real-life project creation (Web2 & Web3) |
 | ⚡ **MnemoForge** | AI-driven app generator — scaffold full Mnemosyne modules from a prompt |
+| 🧩 **MnemoHub** | Centralized ecosystem hub for managing all optional apps, widgets, and features |
 | 🔗 **NexusGraph** | Knowledge graph visualization |
 | 🎯 **Cockpit** | Personalized AI dashboard with modular widgets |
 
