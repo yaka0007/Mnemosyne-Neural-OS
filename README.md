@@ -25,6 +25,10 @@
 ![License](https://img.shields.io/badge/license-Proprietary-8b5cf6)
 ![Version](https://img.shields.io/badge/version-1.0.0--beta.8-f59e0b)
 
+<br/><br/>
+
+[![Download Latest Release](https://img.shields.io/badge/📥_Download_Latest_Release_(Beta)-111827?style=for-the-badge&logo=github)](https://github.com/yaka0007/Mnemosyne-Neural-OS/releases/latest)
+
 <br/>
 
 </div>
