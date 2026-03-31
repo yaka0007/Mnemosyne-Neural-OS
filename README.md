@@ -111,7 +111,7 @@ Unlike fragmented AI wrappers, Mnemosyne enforces **Zero-Raw-Data** policies, me
 
 ### 🤖 Multi-Agent AI Orchestration
 - MnemoSync coordinates multiple AI agents in real-time
-- **The Resonance Protocol** dynamically generates fluid psychological initialization sequences (OCEAN matrix)
+- **The Resonance Engine**: A local-first semantic memory (RAG) and document indexing vector graph powered by cascading embedding models (Ollama, Jina, Cohere)
 - Policy Studio enforces AI behavior boundaries via FGAC
 - Soul profiles inject personality context into every AI interaction
 - MnemoForge can scaffold new applications autonomously
