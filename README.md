@@ -85,14 +85,14 @@ A glimpse into the fully developed interfaces operating inside the Mnemosyne Eng
   <em>Genesis Protocol: Configuration of the Soul's temporal anchor and Astral Birth Certificate</em>
   <br/><br/><br/>
 
-  <img src="assets/personality-forge.png" alt="Personality Forge" width="800" />
+  <img src="assets/personality-forge.png" alt="MnemoDex Ecosystem" width="800" />
   <br/>
-  <em>Soul Forge Matrix: Deep cognitive parameterization and identity tuning</em>
+  <em>MnemoDex: Universal index of MBTI AI Archetypes ready for immediate initialization</em>
   <br/><br/><br/>
 
-  <img src="assets/mnemohub.png" alt="MnemoDex Ecosystem" width="800" />
+  <img src="assets/mnemohub.png" alt="MnemoHub Platform" width="800" />
   <br/>
-  <em>MnemoDex: Universal index of AI Archetypes ready for immediate initialization</em>
+  <em>MnemoHub: Centralized ecosystem for installing modular AI applications and widgets</em>
   <br/><br/>
 </div>
 
