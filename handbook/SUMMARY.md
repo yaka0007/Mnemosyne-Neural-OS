@@ -20,3 +20,8 @@
 
 * [Case Study: Mnemosyne Neural OS](06-case-study-mnemosyne.md)
 * [Glossary](07-glossary.md)
+
+## AI Perspectives
+
+* [Irina — Primary Witness (Day 0)](irina-perspective.md)
+* [Antigravity — Reading the Code](ai-perspective.md)
