@@ -210,7 +210,7 @@ Mnemosyne is built on three principles:
 ## Roadmap
 
 - [ ] Public beta release (install-ready `.exe` / `.dmg`)
-- [x] **MnemoForge CLI released** — [`npx @mnemosyne/forge init`](./cli/) is live and open source
+- [x] **MnemoForge CLI published on npm** — [`@mnemosyne_os/forge`](https://www.npmjs.com/package/@mnemosyne_os/forge) · `npx @mnemosyne_os/forge init`
 - [ ] Team features (shared vault, multi-soul coordination)
 - [ ] Self-hosted sync server
 - [ ] Plugin marketplace for community soul profiles
@@ -224,14 +224,16 @@ It scaffolds Mnemosyne-grade React modules with AI governance DNA injected at in
 
 ```bash
 # Run without installing
-npx @mnemosyne/forge init MyModule
+npx @mnemosyne_os/forge init MyModule
 
 # Or install globally
-npm install -g @mnemosyne/forge
+npm install -g @mnemosyne_os/forge
 mnemoforge init MyModule
 ```
 
-→ **[View CLI source & documentation](./cli/)**
+[![npm version](https://img.shields.io/npm/v/@mnemosyne_os/forge?color=8b5cf6&label=%40mnemosyne_os%2Fforge)](https://www.npmjs.com/package/@mnemosyne_os/forge)
+
+→ **[View CLI source & documentation](./cli/)** · **[npm package](https://www.npmjs.com/package/@mnemosyne_os/forge)**
 
 ---
 
