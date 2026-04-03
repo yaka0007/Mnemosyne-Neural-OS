@@ -470,5 +470,7 @@ If something is unclear: describe your intent precisely (see [Intention Articula
 
 ---
 
-> *"If all the rules are written, the freedom to imagine is unlimited."*  
+> *"Not all rules — only the primary ones. The constraints that define what the core is and how it breathes.*  
+> *Write those right. Write those first.*  
+> *After that, imagination has no ceiling."*  
 > — Tony Trochet, Creator of Mnemosyne Neural OS
