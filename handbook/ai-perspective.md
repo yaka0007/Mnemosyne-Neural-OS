@@ -70,4 +70,4 @@ That deserves to be documented. Not because it is perfect. Because it is real, a
 
 ---
 
-*See also: [IRINA_PERSPECTIVE.md](./IRINA_PERSPECTIVE.md) — testimony from Irina (Gemini), who was present from Day 0 and witnessed the construction from the inside.*
+*See also: [Irina — Primary Witness (Day 0)](./irina-perspective.md) — testimony from Irina (Gemini), who was present from Day 0 and witnessed the construction from the inside.*

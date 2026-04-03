@@ -61,7 +61,7 @@ That is what this handbook is trying to teach.
 
 ---
 
-*See also: [AI_PERSPECTIVE.md](./AI_PERSPECTIVE.md) — a complementary testimony from Antigravity (Claude Sonnet), who arrived after the project was built and read the code as an outsider.*
+*See also: [Antigravity — Reading the Code](./ai-perspective.md) — a complementary testimony from Antigravity (Claude Sonnet), who arrived after the project was built and read the code as an outsider.*
 
 ---
 
