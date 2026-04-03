@@ -72,7 +72,7 @@ Neural Coding has real limits. They are worth knowing before investing in the ap
 
 ## The Status of This Handbook
 
-This document is based on approximately 18 months of a single practitioner building a single project.
+This document is based on five and a half months of a single practitioner building a single project — starting from zero coding experience, first contact with AI development tools in mid-November.
 
 That makes it: a credible starting point, an honest documentation of one approach that worked, and an invitation for others to test, challenge, and extend it.
 

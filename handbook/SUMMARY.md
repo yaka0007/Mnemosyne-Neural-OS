@@ -18,4 +18,5 @@
 
 ## Reference
 
+* [Case Study: Mnemosyne Neural OS](06-case-study-mnemosyne.md)
 * [Glossary](07-glossary.md)
