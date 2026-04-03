@@ -94,15 +94,35 @@ The goal is to make the methodology explicit enough that others can evaluate it 
 
 ---
 
-## How to Contribute
+## Contribute Your Case
 
-If you apply this methodology to a project — even partially — and want to document what you found, contributions are welcome.
+This handbook is built from a single documented case. That is its current limitation and its open invitation.
 
-Especially useful: documented failure cases, patterns that didn't apply in your context, and contexts where a different approach worked better.
+The critique "one practitioner, one project" is fair. The methodology is documented precisely enough that others can apply it — and what's needed now is the second case, the third, the one that breaks the pattern or confirms it.
 
-→ [github.com/yaka0007/Mnemosyne-Neural-OS](https://github.com/yaka0007/Mnemosyne-Neural-OS)  
-→ [dev@mnemosyne-os.com](mailto:dev@mnemosyne-os.com)
+**If you are building something significant with AI assistance:**
+
+- Do you make architectural decisions the AI cannot make alone?
+- Do you veto proposals regularly, and is your veto based on judgment rather than preference?
+- Has your AI collaboration produced something structurally coherent over months, not just days?
+
+If yes — document it. Even informally. Even just a short write-up of what worked and what didn't.
+
+**What's especially useful:**
+
+- Cases where Neural Coding *didn't* apply, and why
+- Contexts with a team (not solo) where the dynamics changed
+- Projects outside software — design, research, writing
+- Anti-patterns you discovered that aren't in Chapter 3
+
+**To share a case or start a conversation:**
+
+→ Open an issue on [github.com/yaka0007/Mnemosyne-Neural-OS](https://github.com/yaka0007/Mnemosyne-Neural-OS)  
+→ Or write directly to [dev@mnemosyne-os.com](mailto:dev@mnemosyne-os.com)
+
+The methodology will be as strong as the cases that test it. One is just the beginning.
 
 ---
 
 *Published under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Share freely with attribution.*
+
