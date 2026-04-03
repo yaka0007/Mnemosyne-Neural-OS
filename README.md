@@ -27,7 +27,7 @@
 
 <br/><br/>
 
-[![Download Latest Release](https://img.shields.io/badge/📥_Download_Latest_Release_(Beta)-111827?style=for-the-badge&logo=github)](https://github.com/yaka0007/Mnemosyne-Neural-OS/releases/latest)
+[![Download Mnemosyne Beta](https://img.shields.io/badge/📥_Download_Mnemosyne_Beta_(v1.0.0--beta.8)-111827?style=for-the-badge&logo=github)](https://github.com/yaka0007/Mnemosyne-Neural-OS/releases/tag/v1.0.0-beta.8)
 
 <br/>
 
