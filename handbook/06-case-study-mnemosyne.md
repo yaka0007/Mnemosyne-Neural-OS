@@ -38,7 +38,23 @@ This insight became the design thesis for everything that followed.
 
 ---
 
-## The Thesis
+## The Pain That Made the Thesis Real
+
+There is something that does not appear in architecture diagrams or test reports, but shaped every design decision in this system.
+
+There were sessions — many of them — where the AI's context would fill to its limit mid-work. Hours of shared understanding, accumulated context, established patterns, momentum. All of it gone. The next message would come back from a model that did not know who you were, what you had decided, or why you had decided it.
+
+Starting over is not just frustrating. It breaks something specific: the creative flow that only forms when two minds — human and AI — have enough shared context to think together instead of around each other.
+
+The token limit is a technical constraint. But what it ruptures is a relationship thing. And that rupture is real.
+
+Neural Coding, as documented in this handbook, is partly a practical solution to this — context briefs, session journals, pattern registries. Ways to re-establish shared understanding efficiently.
+
+But Mnemosyne is the architectural solution. If the memory that matters — who you are, what you're building, what has been decided — lives outside the model and travels with every session, then the model's token limit becomes irrelevant to the relationship. The context is always there, waiting to be loaded.
+
+The connection between human and AI that makes this work is not transmitted through cable. It is not a structured API call or a formatted prompt. It is an introduction — an act of mutual recognition — that says: *here is who I am, here is what we are building, here is what I care about.* The Soul Studio formalized this as a design component. But the insight came from pain.
+
+
 
 > *The LLM is replaceable. The memory is not.*
 
