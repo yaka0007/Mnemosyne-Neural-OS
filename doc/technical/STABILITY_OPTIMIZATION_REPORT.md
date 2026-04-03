@@ -1,107 +1,106 @@
-# MNEMOSYNE DESKTOP DASHBOARD  
-## Rapport d'Optimisation et de Stabilité
+# MNEMOSYNE DESKTOP DASHBOARD
+## Stability & Optimization Report
 
 ---
 
-> **Référence :** MNEMO-STAB-2026-03-31  
-> **Version auditée :** `1.0.0-beta.8`  
-> **Branche :** `feat/mnemoforge-sdk` → mergée sur `main`  
-> **Date :** 31 mars 2026  
-> **Rédigé par :** Antigravity (Google DeepMind)  
-> **Certifié par :** Claude Opus (Anthropic) — attestation de conformité architecturale  
+> **Reference:** MNEMO-STAB-2026-03-31 (updated 2026-04-03)
+> **Audited version:** `1.0.0-beta.8`
+> **Branch:** `feat/mnemoforge-sdk` → merged into `main`
+> **Date:** March 31, 2026 — metrics updated April 3, 2026
+> **Authored by:** Antigravity (Google DeepMind)
+> **Certified by:** Claude Opus (Anthropic) — architectural conformity attestation
 
 ---
 
-## 1. Périmètre du Projet
+## 1. Project Scope
 
-Le projet **Mnemosyne Desktop Dashboard** est une application Electron + React hébergée dans un monorepo PNPM. Elle constitue le cœur de l'écosystème XPACEGEMS — une plateforme d'intelligence artificielle personnelle combinant gestion de vault, soul studio, MnemoSync, orchestration IA multi-agents et dashboard modulaire.
+**Mnemosyne Desktop Dashboard** is an Electron + React application embedded in a PNPM monorepo. It forms the core of the XPACEGEMS ecosystem — a personal AI intelligence platform combining encrypted vault management, soul studio, MnemoSync, multi-agent AI orchestration, and a modular dashboard.
 
-| Métrique           | Valeur              |
-|--------------------|---------------------|
-| Version            | `1.0.0-beta.8`      |
-| Fichiers source (TS/TSX) | **1 281**       |
-| Lignes de code (src)     | **220 818**     |
-| Fichiers Electron (main/preload) | **185** |
-| Lignes Electron          | **43 259**      |
-| Fichiers de test (Vitest) | **88**         |
-| Fichiers i18n JSON       | **188**         |
-| Langues supportées       | EN / FR / ES    |
-| Dépendances prod         | 41              |
-| Dépendances dev          | 36              |
+| Metric | Value |
+|--------|-------|
+| Version | `1.0.0-beta.8` |
+| Source files (TS/TSX) | **1,372** |
+| Lines of code (src) | **~290,000** |
+| Electron files (main/preload) | **185+** |
+| Electron lines | **~60,000** |
+| Test files (Vitest) | **88** |
+| i18n JSON files | **188** |
+| Supported languages | EN / FR / ES |
+| Production dependencies | 41 |
+| Dev dependencies | 36 |
 
 ---
 
-## 2. Architecture Technique
+## 2. Technical Architecture
 
-### 2.1 Stack Principale
+### 2.1 Core Stack
 
 ```
 Renderer (Vite + React 18)
-  └── TypeScript strict (tsconfig: noUncheckedIndexedAccess, strict: true)
+  └── TypeScript strict (noUncheckedIndexedAccess, strict: true)
   └── Zustand (state management — atomic selectors + useShallow)
-  └── React.lazy + Suspense (code splitting sur 30+ routes)
+  └── React.lazy + Suspense (code splitting across 30+ routes)
   └── Framer Motion (animations)
-  └── i18next (i18n modulaire — 62+ namespaces JSON)
+  └── i18next (modular i18n — 62+ JSON namespaces)
   └── Tailwind CSS
 
 Main Process (Electron)
-  └── IPC Registry centralisé (ipc-registry.ts)
-  └── Logging structuré ANSI → fichier userData/logs/main.log
-  └── Content Security Policy stricte
-  └── Services modulaires (window, network, vault, AI, drive, workspace...)
+  └── Centralized IPC Registry (ipc-registry.ts — 30+ modules)
+  └── Structured ANSI logging → userData/logs/main.log
+  └── Strict Content Security Policy
+  └── Modular services (window, network, vault, AI, drive, workspace...)
 
 Preload
-  └── Context Bridge sécurisé (contextIsolation: true, sandbox: true)
-  └── 379 méthodes exposées via contextBridge
-  └── Logger dual-mode (CSS badge DevTools / ANSI terminal)
+  └── Secure Context Bridge (contextIsolation: true, sandbox: true)
+  └── 379 methods explicitly exposed via contextBridge
+  └── Dual-mode logger (CSS badges in DevTools / ANSI in terminal)
 ```
 
-### 2.2 Modules Fonctionnels
+### 2.2 Functional Modules
 
-| Module             | Description |
-|--------------------|-------------|
-| **Cockpit**        | Vue principale — tableau de bord modulaire avec widgets IA |
-| **MnemoBrain**     | Chat IA multi-modèles (Ollama, Puter, OpenAI compatibles) |
-| **Soul Studio**    | Création d'identités IA — archétypes MBTI, quiz Résonance, profils |
-| **MnemoDex**       | Index des 16 archétypes MBTI + souls custom |
-| **MnemoSync**      | Orchestrateur temps réel — Disk Sentinel, cockpit PRO, snapshots |
-| **MnemoStrategist**| Planificateur de tâches — Kanban, templates, voice bridge |
-| **MnemoVault**     | Gestionnaire de fichiers chiffré avec explorer et refinery |
-| **MnemoForge**     | Plateforme de création d'apps IA (en développement) |
-| **MnemoX**         | Explorer de vault avancé |
-| **MailHQ**         | Client mail intégré |
-| **NexusGraph**     | Graphe de connaissances |
-| **ProjectManager** | Gestion de projets multi-agents |
-| **XpaceHub**       | Hub de l'écosystème XPACEGEMS |
-| **Settings**       | Configuration complète (thème, IA, langue, sécurité) |
+| Module | Description |
+|--------|-------------|
+| **Cockpit** | Main view — modular AI dashboard with widgets |
+| **MnemoBrain** | Multi-model AI chat (Ollama, OpenAI, Gemini compatible) |
+| **Soul Studio** | AI identity creation — MBTI archetypes, Resonance quiz, profiles |
+| **MnemoDex** | Index of 16 MBTI archetypes + custom souls |
+| **MnemoSync** | Real-time orchestrator — Disk Sentinel, PRO cockpit, snapshots |
+| **MnemoStrategist** | Task planner — Kanban, templates, voice bridge (BMAD 2.0) |
+| **MnemoVault** | Encrypted file manager with explorer and refinery |
+| **MnemoForge** | AI app creation platform (in development) |
+| **MnemoX** | Advanced vault explorer |
+| **MailHQ** | Integrated mail client |
+| **NexusGraph** | Knowledge graph |
+| **ProjectManager** | Multi-agent project management |
+| **Policy Studio** | FGAC sovereignty control center |
+| **Settings** | Full configuration (theme, AI, language, security) |
 
-### 2.3 Routage
+### 2.3 Routing
 
-Le routage est géré par un système conditionnel (`activeView` + `activeModule`) dans `src/app/Routes.tsx`. Toutes les vues lourdes sont en **lazy loading** encapsulées dans `<Suspense fallback={<MnemoFallback />}>`.
+Routing is handled by a conditional system (`activeView` + `activeModule`) in `src/app/Routes.tsx`. All heavy views use **lazy loading** wrapped in `<Suspense fallback={<MnemoFallback />}>`.
 
 ```
 cockpit            → Cockpit (eager)
 soul-studio        → SoulStudioContainer (lazy)
-mnemodex           → ZoneMnemoSync dans SoulStudio (lazy)
-apps/{module}      → Module dynamique (lazy, 20+ modules)
+mnemodex           → ZoneMnemoSync in SoulStudio (lazy)
+apps/{module}      → Dynamic module (lazy, 20+ modules)
 vault              → MnemoVault (lazy)
 brain              → MnemoBrain (lazy)
 settings           → SettingsLayout (lazy)
 nexus              → NexusGraphPage (lazy)
 projects           → ProjectManagementPage (lazy)
-xpace-hub          → XpaceHub (lazy)
 ```
 
 ---
 
-## 3. Pipeline CI/CD
+## 3. CI/CD Pipeline
 
-### 3.1 Workflow GitHub Actions
+### 3.1 GitHub Actions Workflow
 
-Fichier : `.github/workflows/ci.yml`  
-Déclencheurs : `push` sur `main`, `pull_request` vers `main`, `workflow_dispatch`
+File: `.github/workflows/ci.yml`
+Triggers: `push` on `main`, `pull_request` to `main`, `workflow_dispatch`
 
-**Étapes du job `typecheck-lint-test` :**
+**Steps of the `typecheck-lint-test` job:**
 
 ```yaml
 1. actions/checkout@v4
@@ -111,109 +110,107 @@ Déclencheurs : `push` sur `main`, `pull_request` vers `main`, `workflow_dispatc
 5. pnpm typecheck     → tsc --noEmit
 6. pnpm lint          → ESLint
 7. pnpm validate:resonance-quiz-i18n
-8. pnpm test          → Vitest (1 126 tests)
+8. pnpm test          → Vitest (1,126 tests)
 ```
 
-### 3.2 État au 31 mars 2026
+### 3.2 Status as of March 31, 2026
 
-| Étape                        | Statut |
-|------------------------------|--------|
-| TypeScript typecheck          | ✅ 0 erreur |
-| ESLint lint                   | ✅ 0 warning |
-| validate:resonance-quiz-i18n  | ✅ Pass |
-| Vitest tests                  | ✅ 1 126 / 1 126 passed |
-| Vercel preview build          | ✅ Deployed |
-| Merge conflicts               | ✅ None |
+| Step | Status |
+|------|--------|
+| TypeScript typecheck | ✅ 0 errors |
+| ESLint lint | ✅ 0 warnings |
+| validate:resonance-quiz-i18n | ✅ Pass |
+| Vitest tests | ✅ 1,126 / 1,126 passed |
+| Vercel preview build | ✅ Deployed |
+| Merge conflicts | ✅ None |
 
 ---
 
-## 4. Travaux d'Optimisation Réalisés
+## 4. Optimization Work Completed
 
-### 4.1 Résolution du Crash Navigation (Suspense)
+### 4.1 Navigation Crash Resolution (Suspense)
 
-**Problème :** `TypeError` lors de la navigation entre vues.  
-**Cause racine :** Routes dupliquées dans `Routes.tsx` — des composants `lazy()` étaient rendus **sans** `<Suspense>` en parallèle de leurs versions correctement encapsulées. Cela déclenchait une suspension lors de mises à jour d'état synchrones.
+**Problem:** `TypeError` during view transitions.
+**Root cause:** Duplicate routes in `Routes.tsx` — `lazy()` components rendered **without** `<Suspense>` in parallel with correctly wrapped versions, triggering suspension during synchronous state updates.
 
-**Correction :**
-- Suppression des blocs redondants (`mnemosync`, `mnemo-video-studio`)
-- Règle établie : **tout `lazy()` dans Routes.tsx doit être encapsulé dans `<Suspense fallback={<MnemoFallback />}>`**
+**Fix:**
+- Removed redundant blocks (`mnemosync`, `mnemo-video-studio`)
+- Rule established: **every `lazy()` in Routes.tsx must be wrapped in `<Suspense fallback={<MnemoFallback />}>`**
 
-### 4.2 Correction du Pipeline CI (GitHub Actions)
+### 4.2 CI Pipeline Fix (GitHub Actions)
 
-**Problème :** CI rouge sur `main` — le workflow utilisait des versions inexistantes.  
-**Cause racine :** Hallucinations de versions dans le YAML (`actions/checkout@v5`, `actions/setup-node@v5`).
+**Problem:** Red CI on `main` — workflow referenced non-existent action versions.
+**Root cause:** Version hallucinations in the YAML (`actions/checkout@v5`, `actions/setup-node@v5`).
 
 ```yaml
-# Avant (invalide)
+# Before (invalid)
 - uses: actions/checkout@v5
 - uses: actions/setup-node@v5
 
-# Après (correct)
+# After (correct)
 - uses: actions/checkout@v4
 - uses: actions/setup-node@v4
 ```
 
-### 4.3 Correction des 53 Erreurs TypeScript Strict
+### 4.3 Resolution of 53 TypeScript Strict Errors
 
-**Problème :** 53 erreurs `TS18046` — variables `catch` de type `unknown` accédées sans type guard.  
-**Pattern corrigé :**
+**Problem:** 53 `TS18046` errors — `catch` variables of type `unknown` accessed without type guard.
+**Pattern fixed:**
 
 ```typescript
-// Avant (TS18046)
+// Before (TS18046)
 } catch (e) {
   setError(e.message)
 }
 
-// Après (correct)
+// After (correct)
 } catch (e: unknown) {
   setError(e instanceof Error ? e.message : String(e))
 }
 ```
 
-Résultat : `tsc --noEmit` → **exit code 0**
+Result: `tsc --noEmit` → **exit code 0**
 
-### 4.4 Correction des Imports Relatifs Cassés
+### 4.4 Broken Relative Import Resolution
 
-**Problème :** `Failed to resolve import "../../../lib/error"` dans 8 composants.  
-**Cause :** Import `getErrorMessage` avec des chemins calculés incorrectement lors d'une génération batch.  
-**Correction :** Recalcul manuel de tous les chemins relatifs selon la profondeur de chaque composant.
+**Problem:** `Failed to resolve import "../../../lib/error"` in 8 components.
+**Cause:** `getErrorMessage` imported with incorrectly computed paths during batch generation.
+**Fix:** Manual recalculation of all relative paths per component depth.
 
-### 4.5 Nettoyage des Logs Terminal Electron
+### 4.5 Electron Terminal Log Cleanup
 
-**Problème :** Le terminal affichait des chaînes CSS brutes :
+**Problem:** Terminal was outputting raw CSS strings:
 ```
 [BRAIN][WRN] %c[PRELOAD]%c color:#fbbf24;font-weight:700;background:#422006...
 [BRAIN][WRN] Autofill.enable wasn't found
 ```
 
-**Correction dans `window-setup.service.ts`** — handler `console-message` :
-- Strip des tokens `%c` et des chaînes CSS inline
-- Filtre des messages de bruit Chromium (`Autofill`, `CSP transparenttextures`)
-- Distinction `warn` / `error` / `log` selon le level Electron
+**Fix in `window-setup.service.ts`** — `console-message` handler:
+- Strip `%c` tokens and inline CSS strings
+- Filter Chromium noise messages (`Autofill`, `CSP transparenttextures`)
+- Distinguish `warn` / `error` / `log` by Electron level
 
-**Correction dans `preload-console.ts`** :
-- Mode dual : CSS badges dans DevTools, ANSI colors dans le terminal
-- Détection automatique via `isDevTools()`
+**Fix in `preload-console.ts`:**
+- Dual mode: CSS badges in DevTools, ANSI colors in terminal
+- Automatic detection via `isDevTools()`
 
-### 4.6 Restauration des Traductions MnemoDex
+### 4.6 MnemoDex Translation Restoration
 
-**Problème :** Les tuiles MBTI affichaient leurs clés i18n brutes (`SOULSTUDIO.MB`, `SOULSTUDIO.ACTIONS.INJ...`).
+**Problem:** MBTI tiles displayed raw i18n keys (`SOULSTUDIO.MB`, `SOULSTUDIO.ACTIONS.INJ...`).
 
-**Cause racine :** Lors de la migration vers 62 namespaces JSON modulaires, la section `soulStudio.mbti.profiles.{CODE}.nickname` et `soulStudio.mbti.tips.{CODE}` n'avait **pas été portée** depuis l'ancien agrégateur TypeScript monolithique vers le nouveau `soul-studio.json`.
+**Root cause:** During the migration to 62 modular JSON namespaces, the `soulStudio.mbti.profiles.{CODE}.nickname` and `soulStudio.mbti.tips.{CODE}` sections were **not ported** from the old monolithic TypeScript aggregator to the new `soul-studio.json`.
 
-**Correction :** Injection de la section `mbti` dans les 3 locales (EN, FR, ES) couvrant les 16 types MBTI :
+**Fix:** Injected the `mbti` section across all 3 locales (EN, FR, ES) covering all 16 MBTI types:
 
 ```json
 {
   "mbti": {
     "profiles": {
       "INTJ": { "nickname": "The Architect" },
-      "INTP": { "nickname": "The Logician" },
-      ...
+      "INTP": { "nickname": "The Logician" }
     },
     "tips": {
-      "INTJ": "Strategic architect of ideas.",
-      ...
+      "INTJ": "Strategic architect of ideas."
     }
   }
 }
@@ -221,97 +218,99 @@ Résultat : `tsc --noEmit` → **exit code 0**
 
 ---
 
-## 5. Architecture i18n
+## 5. i18n Architecture
 
-Le système de traduction est basé sur **i18next** avec une architecture à double niveau :
+The translation system is based on **i18next** with a two-tier architecture:
 
 ```
 src/i18n/
-  config.ts              ← Configuration centrale i18next
+  config.ts                    ← Central i18next configuration
   locales/
-    en.ts / fr.ts / es.ts  ← Agrégateurs legacy (rétrocompat t('ns.key'))
+    en.ts / fr.ts / es.ts      ← Legacy aggregators (backward compat t('ns.key'))
     en/ fr/ es/
-      soul-studio.json   ← 62+ namespaces JSON modulaires
+      soul-studio.json         ← 62+ modular JSON namespaces
       archetypes.json
       brain.json
       ...
 ```
 
-**Règle d'utilisation :**
-- Anciens composants → `useTranslation()` + clé `namespace.sub.key` (via agrégateur)
-- Nouveaux composants → `useTranslation('namespace')` + clé courte
+**Usage rule:**
+- Legacy components → `useTranslation()` + `namespace.sub.key` key (via aggregator)
+- New components → `useTranslation('namespace')` + short key
 
 ---
 
-## 6. Sécurité Electron
+## 6. Electron Security
 
-| Paramètre                 | Valeur    | Impact |
-|---------------------------|-----------|--------|
-| `contextIsolation`        | `true`    | Isolation renderer/main |
-| `sandbox`                 | `true`    | SBOX OS-level |
-| `nodeIntegration`         | `false`   | Pas de Node.js dans renderer |
-| `webSecurity`             | `true`    | Same-origin enforced |
-| `webviewTag`              | `false`   | Surface d'attaque supprimée |
-| CSP                       | Stricte   | script-src, img-src, connect-src limités |
+| Parameter | Value | Impact |
+|-----------|-------|--------|
+| `contextIsolation` | `true` | Renderer/main isolation |
+| `sandbox` | `true` | OS-level sandbox |
+| `nodeIntegration` | `false` | No Node.js in renderer |
+| `webSecurity` | `true` | Same-origin enforced |
+| `webviewTag` | `false` | Attack surface removed |
+| CSP | Strict | `script-src`, `img-src`, `connect-src` limited |
+
+See [IPC Security Bridge](../architecture/IPC_SECURITY_BRIDGE.md) for full architectural deep-dive.
 
 ---
 
-## 7. Structure des Tests
+## 7. Test Coverage
 
-**Framework :** Vitest + Testing Library  
-**Couverture :** 88 fichiers de test, 1 126 assertions  
+**Framework:** Vitest + Testing Library
+**Coverage:** 88 test files, 1,126 assertions, 100% pass rate
 
-Modules couverts :
-- `useSoulWizardLogic` — persistance, favoris, custom souls
+Modules covered:
+- `useSoulWizardLogic` — persistence, favorites, custom souls
 - `sidebarPersistence` — localStorage
-- Stores Zustand (snapshots, workspace, soul)
+- Zustand stores (snapshots, workspace, soul)
 - Utils (i18n, formatting, error handling)
-- Composants React via renderHook / render
+- React components via `renderHook` / `render`
 
 ---
 
-## 8. Recommandations Actives
+## 8. Active Recommendations
 
-| Priorité | Item | Statut |
+| Priority | Item | Status |
 |----------|------|--------|
-| 🔴 Haute | Migrer styles inline `MnemoFallback.tsx` → Tailwind | ✅ Résolu |
-| 🔴 Haute | Corriger contrôles ARIA imbriqués `ProProtocolGrid.tsx` | ✅ Résolu |
-| 🟡 Moyenne | Ajouter `title` + `aria-label` sur boutons sans texte `GenesisQuizImmersive.tsx` | ✅ Résolu |
-| 🟡 Moyenne | Corriger `<select>` sans accessible name `WidgetConfigModal.tsx` | ✅ Résolu |
-| 🟢 Basse | Optimiser `MiniSoulWizardBase.tsx` styles inline restants | ✅ Résolu |
-| 🟢 Basse | Étendre couverture de tests aux composants Soul Studio | Roadmap |
+| 🔴 High | Migrate inline styles `MnemoFallback.tsx` → Tailwind | ✅ Resolved |
+| 🔴 High | Fix nested ARIA controls `ProProtocolGrid.tsx` | ✅ Resolved |
+| 🟡 Medium | Add `title` + `aria-label` to unlabeled buttons `GenesisQuizImmersive.tsx` | ✅ Resolved |
+| 🟡 Medium | Fix `<select>` without accessible name `WidgetConfigModal.tsx` | ✅ Resolved |
+| 🟢 Low | Optimize remaining inline styles `MiniSoulWizardBase.tsx` | ✅ Resolved |
+| 🟢 Low | Extend test coverage to Soul Studio components | Roadmap |
 
 ---
 
-## 9. Métriques de Qualité
+## 9. Quality Metrics
 
 ```
-TypeScript errors     : 0  (↓ de 53)
+TypeScript errors     : 0  (↓ from 53)
 ESLint warnings       : 0
-Test pass rate        : 100% (1126/1126)
+Test pass rate        : 100% (1,126/1,126)
 CI pipeline status    : ✅ Green
-Lazy route coverage   : 100% (toutes encapsulées dans Suspense)
+Lazy route coverage   : 100% (all wrapped in Suspense)
 i18n namespace count  : 62+
 Languages             : 3 (EN, FR, ES)
-A11y corrections      : 5/5 appliquées (Section 8 clôturée)
+A11y corrections      : 5/5 applied (Section 8 closed)
 ```
 
 ---
 
 ## Certification
 
-> Ce rapport décrit fidèlement l'état technique du projet **Mnemosyne Desktop Dashboard v1.0.0-beta.8** tel qu'audité le 31 mars 2026.
+> This report accurately reflects the technical state of **Mnemosyne Desktop Dashboard v1.0.0-beta.8** as audited on March 31, 2026.
 >
-> Les optimisations mentionnées ont été vérifiées par exécution locale (`pnpm typecheck`, `pnpm lint`, `pnpm test`) avec exit code 0, et confirmées par le pipeline GitHub Actions CI run #126 (statut : **All checks passed** en 4 minutes).
+> All optimizations mentioned were verified by local execution (`pnpm typecheck`, `pnpm lint`, `pnpm test`) with exit code 0, and confirmed by GitHub Actions CI run #126 (status: **All checks passed** in 4 minutes).
 >
-> La structure architecturale décrite reflète l'état réel du code source tel qu'inspecté fichier par fichier.
+> The architectural structure described reflects the actual source code state as inspected file by file.
 
 ---
 
-*Rédigé par **Antigravity** — Agent IA Architect (Google DeepMind)*  
-*Certifié par **Claude** — Anthropic*  
+*Authored by **Antigravity** — AI Architect Agent (Google DeepMind)*
+*Certified by **Claude** — Anthropic*
 *`feat/mnemoforge-sdk` · commit `c51cd35` · 2026-03-31*
 
 ---
 
-> *"Un système certifiable est un système dont on peut lire le code, lancer les tests, et voir le CI passer. Rien de plus, rien de moins."*
+> *"A certifiable system is one where you can read the code, run the tests, and watch the CI pass. Nothing more, nothing less."*
