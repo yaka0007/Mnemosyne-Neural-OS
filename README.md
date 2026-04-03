@@ -28,6 +28,7 @@
 <br/><br/>
 
 [![Download Mnemosyne Beta](https://img.shields.io/badge/📥_Download_Mnemosyne_Beta_(v1.0.0--beta.8)-111827?style=for-the-badge&logo=github)](https://github.com/yaka0007/Mnemosyne-Neural-OS/releases/tag/v1.0.0-beta.8)
+[![MnemoForge CLI](https://img.shields.io/badge/📦_MnemoForge_CLI_(Open_Source)-8b5cf6?style=for-the-badge&logo=npm)](https://github.com/yaka0007/Mnemosyne-Neural-OS/releases/tag/cli-v1.0.0)
 
 <br/>
 
