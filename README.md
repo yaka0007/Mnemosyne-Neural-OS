@@ -210,10 +210,45 @@ Mnemosyne is built on three principles:
 ## Roadmap
 
 - [ ] Public beta release (install-ready `.exe` / `.dmg`)
-- [ ] MnemoForge public CLI (`npx mnemoforge init`)
+- [x] **MnemoForge CLI released** — [`npx @mnemosyne/forge init`](./cli/) is live and open source
 - [ ] Team features (shared vault, multi-soul coordination)
 - [ ] Self-hosted sync server
 - [ ] Plugin marketplace for community soul profiles
+
+---
+
+## 🔧 MnemoForge CLI — Open Source
+
+The **MnemoForge CLI** is publicly available as a standalone open-source tool.
+It scaffolds Mnemosyne-grade React modules with AI governance DNA injected at inception.
+
+```bash
+# Run without installing
+npx @mnemosyne/forge init MyModule
+
+# Or install globally
+npm install -g @mnemosyne/forge
+mnemoforge init MyModule
+```
+
+→ **[View CLI source & documentation](./cli/)**
+
+---
+
+## Licensing
+
+This repository follows an **open-core model**:
+
+| Component | License | Description |
+|-----------|---------|-------------|
+| **MnemoForge CLI** (`/cli`) | [MIT](./cli/LICENSE) | Open source — free to use, modify, and redistribute |
+| **Mnemosyne Neural OS** (platform) | Proprietary | © 2026 XPACEGEMS LLC — All rights reserved |
+
+The **MnemoForge CLI** is MIT licensed. Anyone can use it to scaffold AI-governed modules, fork it, or build on top of it.
+
+The **Mnemosyne Neural OS platform** — including the desktop application, Resonance Engine, MnemoVault, MnemoSync, Policy Studio, and all associated services — is **proprietary software**. All rights reserved. No part of the platform may be copied, modified, or distributed without explicit written permission from XPACEGEMS LLC.
+
+> For licensing inquiries: [tony@xpacegems.com](mailto:tony@xpacegems.com)
 
 ---
 
