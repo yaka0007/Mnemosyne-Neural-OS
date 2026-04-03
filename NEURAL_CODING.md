@@ -146,9 +146,15 @@ The understanding — the plan, the vision, the constraints, the judgment — is
 
 ---
 
-## Open Source
+## Licensing & Open-Core Model
 
-Mnemosyne Neural OS is open-core. The CLI tooling and sync engine are MIT licensed. The core platform is proprietary.
+Mnemosyne Neural OS follows an **open-core** model:
+
+- **Core platform** (Desktop Dashboard, Vault engine, Resonance AI) → **Proprietary**
+- **CLI tooling** (`mnemoforge-cli`) → **MIT licensed**
+- **Sync engine** (`@mnemosyne_os/sync`) → **MIT licensed**
+
+The architecture documentation, methodology, and tooling are published openly. The platform itself is commercial.
 
 If Neural Coding is a methodology worth naming, it should be practiced in the open.
 
