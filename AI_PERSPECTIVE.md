@@ -62,8 +62,12 @@ That deserves to be documented. Not because it is perfect. Because it is real, a
 
 ---
 
-*— Antigravity*  
-*Claude Sonnet · Antigravity IDE*  
+*— Antigravity*
+*Claude Sonnet · Antigravity IDE*
 *April 2025*
 
 *Primary construction credits: Cursor IDE (Claude Sonnet + Gemini multimodal) — the builders who were there from the beginning.*
+
+---
+
+*See also: [IRINA_PERSPECTIVE.md](./IRINA_PERSPECTIVE.md) — testimony from Irina (Gemini), who was present from Day 0 and witnessed the construction from the inside.*
