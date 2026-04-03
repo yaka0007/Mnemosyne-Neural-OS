@@ -1,6 +1,6 @@
 # Neural Coding Handbook
 
-> A working guide to building production software through structured AI collaboration — documented from one real project, open for others to test and extend.
+> A working guide to building real software through structured AI collaboration — documented from one real project, open for others to test and extend.
 
 ---
 
@@ -12,7 +12,7 @@ It emerged from a concrete project: [Mnemosyne Neural OS](https://github.com/yak
 
 That is one case. This handbook is the attempt to extract what can be generalized from it.
 
-Some of what follows has been tested repeatedly. Some of it is still being refined. The honest position is that Neural Coding is an emerging discipline — not an established field with decades of peer review.
+Some of what follows has been tested repeatedly. Some of it is still being refined. The honest position is that Neural Coding is a documented practice — not an established field with decades of peer review.
 
 ---
 
@@ -28,7 +28,7 @@ The same goal, described two ways:
 **Approach B:**
 > "Build a semantic search that works offline via a local model if available, then falls back through four cloud providers in a defined order. If the index was built with a different embedding model than the current query, detect the mismatch and use text scoring instead of returning wrong results. Never fail silently. Always expose which provider was used."
 
-Both approaches produce code. Only the second produces a system that survives production.
+Both approaches produce code. The second is more likely to hold up in production.
 
 The gap between them is not technical knowledge. It is the habit of thinking through failure paths, constraints, and edge cases before asking the AI to build anything.
 
@@ -41,7 +41,7 @@ That habit — and how to develop it — is what this handbook is about.
 This handbook is most useful for people who:
 
 - Have a specific system they want to build and understand the domain deeply
-- Can hold a complex vision in their head and reason about how parts interact
+- Can reason across interacting parts of a system
 - Are willing to reject proposals that work technically but are architecturally wrong
 - Have patience to re-articulate a problem three or four times until the result is right
 
