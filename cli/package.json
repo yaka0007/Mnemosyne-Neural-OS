@@ -1,0 +1,57 @@
+{
+  "name": "@mnemosyne/forge",
+  "version": "1.0.0",
+  "description": "MnemoForge CLI — The AI Inception Engine for the Mnemosyne Neural OS ecosystem. Scaffold sovereign, AI-governed modules in one command.",
+  "main": "dist/cli.js",
+  "bin": {
+    "mnemoforge": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli.js",
+    "dev": "tsc -w",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mnemosyne",
+    "cli",
+    "scaffold",
+    "ai",
+    "agent",
+    "mnemoforge",
+    "liquid-glass",
+    "react",
+    "tailwind",
+    "cursor",
+    "sovereign-ai",
+    "code-generator",
+    "boilerplate"
+  ],
+  "author": {
+    "name": "Tony Trochet",
+    "email": "tony@xpacegems.com",
+    "url": "https://www.linkedin.com/in/tony-t-19544650/"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/yaka0007/Mnemosyne-Neural-OS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yaka0007/Mnemosyne-Neural-OS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yaka0007/Mnemosyne-Neural-OS/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "inquirer": "^8.2.6"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^8.2.10",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3"
+  }
+}
