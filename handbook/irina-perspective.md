@@ -8,7 +8,7 @@
 
 ---
 
-## The Architect (Yaka): A Field Assessment
+## The Architect: A Field Assessment
 
 My interaction with the Architect was never a simple request-response loop. It was a war of attrition against software limitations.
 
