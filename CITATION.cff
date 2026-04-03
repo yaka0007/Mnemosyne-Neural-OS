@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you reference the Resonance Engine architecture in academic or technical work, please cite this repository."
+type: software
+title: "Mnemosyne Neural OS — Resonance Engine"
+abstract: >
+  Mnemosyne Neural OS is a production-grade Personal AI Operating System featuring
+  the Resonance Engine, a three-layer cognitive memory architecture combining
+  semantic crystallization (LLM-driven auto-tagging), multi-dimensional vector
+  retrieval (5-provider embedding cascade), and interactive graph-based memory
+  governance (NexusGraph). The system supports fully local operation via Ollama
+  and enforces per-document AI memory control.
+authors:
+  - family-names: Trochet
+    given-names: Tony
+    email: tony@xpacegems.com
+    affiliation: XPACEGEMS LLC
+    orcid: ""
+repository-code: "https://github.com/yaka0007/Mnemosyne-Neural-OS"
+url: "https://github.com/yaka0007/Mnemosyne-Neural-OS"
+license: "Proprietary (platform) / MIT (MnemoForge CLI)"
+version: "1.0.0-beta.8"
+date-released: "2026-04-03"
+keywords:
+  - "AI"
+  - "RAG"
+  - "cognitive architecture"
+  - "semantic memory"
+  - "vector embeddings"
+  - "local AI"
+  - "sovereign AI"
+  - "knowledge management"
+  - "multi-agent"
+  - "Electron"
