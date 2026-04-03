@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "@mnemosyne/forge",
   "version": "1.0.0",
   "description": "MnemoForge CLI — The AI Inception Engine for the Mnemosyne Neural OS ecosystem. Scaffold sovereign, AI-governed modules in one command.",
@@ -29,7 +29,7 @@
   ],
   "author": {
     "name": "Tony Trochet",
-    "email": "tony@xpacegems.com",
+    "email": "dev@mnemosyne-os.com",
     "url": "https://www.linkedin.com/in/tony-t-19544650/"
   },
   "license": "MIT",

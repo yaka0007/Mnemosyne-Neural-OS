@@ -1,4 +1,4 @@
-<div align="center">
+﻿<div align="center">
 
 <br/>
 
@@ -251,7 +251,7 @@ The **MnemoForge CLI** is MIT licensed. Anyone can use it to scaffold AI-governe
 
 The **Mnemosyne Neural OS platform** — including the desktop application, Resonance Engine, MnemoVault, MnemoSync, Policy Studio, and all associated services — is **proprietary software**. All rights reserved. No part of the platform may be copied, modified, or distributed without explicit written permission from XPACEGEMS LLC.
 
-> For licensing inquiries: [tony@xpacegems.com](mailto:tony@xpacegems.com)
+> For licensing inquiries: [dev@mnemosyne-os.com](mailto:dev@mnemosyne-os.com)
 
 ---
 

@@ -1,4 +1,4 @@
-# Contributor Covenant Code of Conduct
+﻿# Contributor Covenant Code of Conduct
 
 ## Our Pledge
 
@@ -34,7 +34,7 @@ This Code of Conduct applies within all community spaces (GitHub Issues, Pull Re
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainer at **[tony@xpacegems.com](mailto:tony@xpacegems.com)**. All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainer at **[dev@mnemosyne-os.com](mailto:dev@mnemosyne-os.com)**. All complaints will be reviewed and investigated promptly and fairly.
 
 ## Attribution
 

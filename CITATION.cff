@@ -1,4 +1,4 @@
-cff-version: 1.2.0
+﻿cff-version: 1.2.0
 message: "If you reference the Resonance Engine architecture in academic or technical work, please cite this repository."
 type: software
 title: "Mnemosyne Neural OS — Resonance Engine"
@@ -12,7 +12,7 @@ abstract: >
 authors:
   - family-names: Trochet
     given-names: Tony
-    email: tony@xpacegems.com
+    email: dev@mnemosyne-os.com
     affiliation: XPACEGEMS LLC
     orcid: ""
 repository-code: "https://github.com/yaka0007/Mnemosyne-Neural-OS"

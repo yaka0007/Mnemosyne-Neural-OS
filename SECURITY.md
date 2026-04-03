@@ -1,4 +1,4 @@
-# 🔐 Security Policy — Mnemosyne Neural OS
+﻿# 🔐 Security Policy — Mnemosyne Neural OS
 
 **Security Score: A-grade** | Last Audit: March 31, 2026 | Status: ✅ Production-Ready
 
@@ -22,7 +22,7 @@ We take security seriously. If you discover a vulnerability, please report it **
 
 1. **Do NOT** open a public GitHub issue for security vulnerabilities
 2. Use **[GitHub Security Advisories](https://github.com/yaka0007/Mnemosyne-Neural-OS/security/advisories/new)** (preferred)
-3. Or email directly: **[tony@xpacegems.com](mailto:tony@xpacegems.com)**
+3. Or email directly: **[dev@mnemosyne-os.com](mailto:dev@mnemosyne-os.com)**
 
 Please include:
 - Type of vulnerability (e.g., XSS, RCE, path traversal)
@@ -153,7 +153,7 @@ All **High** and **Critical** findings are resolved before any public release.
 | Channel | Contact |
 |---------|---------|
 | GitHub Security Advisories | [Report privately](https://github.com/yaka0007/Mnemosyne-Neural-OS/security/advisories/new) |
-| Email | [tony@xpacegems.com](mailto:tony@xpacegems.com) |
+| Email | [dev@mnemosyne-os.com](mailto:dev@mnemosyne-os.com) |
 | Response SLA | < 48 hours for acknowledgment |
 
 **XPACEGEMS LLC** — Miami, FL 33122, USA

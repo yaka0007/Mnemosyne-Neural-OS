@@ -1,4 +1,4 @@
-# Contributing to MnemoForge CLI
+﻿# Contributing to MnemoForge CLI
 
 Thank you for your interest in contributing to **MnemoForge** — the AI inception engine for the Mnemosyne Neural OS ecosystem.
 
@@ -82,4 +82,4 @@ By contributing, you agree that your contributions will be licensed under the [M
 ---
 
 **XPACEGEMS LLC** — Miami, FL 33122, USA  
-Questions? [tony@xpacegems.com](mailto:tony@xpacegems.com)
+Questions? [dev@mnemosyne-os.com](mailto:dev@mnemosyne-os.com)
