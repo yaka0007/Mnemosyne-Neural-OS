@@ -127,5 +127,59 @@ The Veto is domain judgment. That's your territory. Use it.
 
 ---
 
+## The Founding Veto
+
+There is a special category of Veto that applies not to a specific AI proposal, but to an entire class of decisions — applied once, up front, as a founding constraint.
+
+Security is the clearest example.
+
+A practitioner without technical experience might be tempted to defer security decisions: *"We'll add proper encryption later. We'll handle access control once the feature works. We'll think about data sovereignty after launch."*
+
+This is the wrong approach — not because those things are hard to add later, but because deferring them creates a different kind of obstacle: **fear**.
+
+When you don't know where your data goes, you self-censor. You hesitate to put real ideas in the system. You don't fully trust your own tool. The uncertainty about what is protected and what is exposed creates constant background anxiety that constrains what you're willing to build and share.
+
+The Founding Veto eliminates that fear before it starts.
+
+When the practitioner establishes security as non-negotiable at the beginning — *"API keys must be encrypted by the OS, not stored in plain text. Filesystem access must be whitelisted. There must be no outbound data I didn't authorize."* — they are not adding restrictions. They are adding a foundation of trust in their own system.
+
+That trust is what enables **creative freedom**.
+
+Once you know your vault is local, your keys are encrypted at the OS level, and a Watchtower service monitors outbound connections — you can build anything, document anything, store anything, experiment with anything. Nothing you create can accidentally leak or be used without your knowledge. The system is yours, completely.
+
+The Founding Veto on security is the trade of one hour of constraint articulation for five months of creative freedom.
+
+---
+
+## The Sovereignty Audit — A New Verification Pattern
+
+The Founding Veto produces an interesting downstream effect: **the practitioner's non-technical intention becomes auditable in the technical implementation**.
+
+In Mnemosyne OS, security was declared as non-negotiable from day one. The practitioner had no way to verify the implementation directly — they cannot read TypeScript.
+
+Months later, an independent AI agent read the codebase cold and found:
+
+- `path-security.ts`: every IPC filesystem call validated against a 5-directory whitelist. Null bytes and path traversal blocked explicitly.
+- `secure-storage.service.ts`: API keys encrypted using the native OS credential store (DPAPI / Keychain / libsecret). Refusal to store if encryption unavailable.
+- `app-integrity.service.ts`: SHA-256 hash of critical binary components at startup. The comment reads: *"LLM output NEVER alters this verdict."*
+- `watchtower.service.ts`: 16KB network monitoring service. Outbound connections visible to the user at all times.
+- `shield.service.ts`, `keyvault.service.ts`: vault integrity scan and access audit log.
+
+The agent's conclusion: *"Yes, maximum security was implemented. The founding intention was respected."*
+
+This is the **Sovereignty Audit**: a pattern where a non-technical practitioner's founding constraint can be verified in the technical implementation by an independent AI reviewer — without the practitioner needing to understand the code themselves.
+
+The Sovereignty Audit is possible because Neural Coding produces code that carries its own intent. The security decisions are not hidden in configuration files or undocumented choices — they are explicit, named, and architecturally isolated. An auditor can find them, read them, and confirm they do what they were supposed to do.
+
+For practitioners without technical backgrounds, this creates a new form of trust in AI-built systems:
+
+> *"I don't need to read the code. I need to articulate the intention precisely, apply the Founding Veto, and trust that an independent AI review can verify the outcome."*
+
+The chain of trust: practitioner articulates → AI builds → time passes → independent AI verifies → practitioner confirmed.
+
+This is not a workaround for the lack of technical knowledge. It is a new audit model for human-AI collaboration.
+
+---
+
 *Previous: [Architectural Judgment ←](./02-architectural-judgment.md)*  
 *Next: [Anti-Patterns →](../03-anti-patterns.md)*
