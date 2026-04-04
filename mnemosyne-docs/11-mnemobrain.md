@@ -8,46 +8,63 @@
 
 MnemoBrain is the primary interaction layer of Mnemosyne OS — the chat interface where the practitioner converges with their AI. It is not a standard chat window.
 
-Every conversation in MnemoBrain happens inside a **Resonance Project** (Ma vie, Mnemosyne, or any custom project), against an **active Soul** identity, with access to the **Nexus Graph**, and with the **Thought Matrix** monitoring every response.
+Every conversation in MnemoBrain happens inside a **Resonance Project** (Ma vie, Mnemosyne, or any custom project), against an **active Soul** identity, with access to the **Nexus Graph**, and with **three layers of memory automatically compiled and injected before every response**.
 
 The distinction matters: in most AI tools, you start fresh. In MnemoBrain, you are always inside a context — a named project, a living memory space, an AI with a defined identity and behavioral profile. The conversation is contextualized before you type a single word.
 
 ---
 
-## The Interface
+## Multi-LLM — One Memory System
+
+MnemoBrain supports multiple LLM providers simultaneously, switchable with one click:
+
+**Cloud providers (GROQ LPU):**
+- DeepSeek R1 Distill — FREE · Ultra-rapid · Thinking · Broad
+- Mistral 8x7B — FREE · Ultra-rapid · 32k context
+- Gemma 2 9B — FREE · Ultra-rapid
+- Llama 3.2 90B Vision — FREE · Vision · Broad
+
+**Local inference:**
+- HF Bartowski Meta Llama 3.1 8B (Q8_K_M) · Qwen2.5 18B (Q6_K_M)
+- HF TheBloke Mistral 7B Instruct V0.2
+- TinyLlama 1.1B Chat
+
+**Ollama (local):**
+- Gemma3 · Kimi K2 5 · Nomic Embed Text (embedding)
+
+**The critical point:** regardless of which model is selected, the memory system is identical. The model changes. The context does not. Three layers of Resonance are compiled and injected automatically before every response — whatever the LLM.
+
+---
+
+## The Three-Layer Memory Injection
+
+Every message sent in MnemoBrain triggers a compilation pipeline before the LLM sees it. The "25 memories injected" indicator in the interface reflects the total fragments assembled across three layers:
 
 ```
-┌─────────────────────────────────────────────────────┐
-│  MNEMOSYNE / SYSTEM / NEURAL I                      │
-│  ┌────────────────────────────────────────────────┐ │
-│  │ [ Continuum ] [ Ghost ] [ Observer ]           │ │
-│  │   0.6K / 50K tokens  [ FREE ] [ Auto ●]        │ │
-│  └────────────────────────────────────────────────┘ │
-│                                                     │
-│         [Conversation area]                         │
-│                                                     │
-│  ──────────────────────────────────────────────     │
-│  ⚡ STRATEGIST (THIS CHAT)                    QUICK │
-│  ⓘ  THOUGHT MATRIX                                  │
-│  ──────────────────────────────────────────────     │
-│  🔗 Nexus Graph  💎 Gemini 2.5 Flash  📊 Strategist │
-│                                              Crystallize │
-│  ──────────────────────────────────────────────     │
-│  🌀 Active Soul: Mnemosyne                          │
-│     [ Souls ]  [ Mini-Souls ]                       │
-└─────────────────────────────────────────────────────┘
+User sends message
+  │
+  ├── Layer 1: LIVE MEMORY
+  │   └── All uncrystallized messages from the current session
+  │       Injected as: [HISTORIQUE SESSION ACTUELLE]
+  │
+  ├── Layer 2: CHRONICLES ARCHIVE
+  │   └── Last 5 crystallized Chronicles from the vault
+  │       book number · date · empireExtract
+  │       Injected as: [ARCHIVES - CONTEXTE HISTORIQUE RÉCENT]
+  │       Also watched by: Sovereign Arbiter (strategic conflict detection)
+  │
+  └── Layer 3: RESONANCE RAG
+      ├── Hashtag detection: #tags in message → RESONANCE_INDEX.json query
+      │   Injected as: [RECHERCHE LOCALE - Hashtags]
+      └── DNA/Keyword detection: known tokens → DNA knowledge retrieval
+          Injected as: [RECHERCHE LOCALE - DNA]
+          
+──────────────────────────────────────────────────────
+Final prompt = System identity + Layer 1 + Layer 2 + Layer 3 + User message
+──────────────────────────────────────────────────────
 ```
 
-**Context controls (top bar):**
-- **Continuum** — continuous memory mode, Chronicles feed into the context
-- **Ghost** — stealth mode, the conversation is not memorized
-- **Observer** — read-only access for silent AI agents
-
-**Bottom bar:**
-- **Nexus Graph** — jump to the semantic constellation from any message
-- **Model selector** — switch the active LLM mid-conversation
-- **Strategist** — pinned shortcut to the Strategist module
-- **Crystallize** — manual Chronicle trigger (the Narcissus button)
+**What "25 memories injected" means:** 25 fragments — from session history, archived chronicles, and Resonance index matches — were compiled into the context before Gemini received the message. The practitioner typed one question. The system assembled the equivalent of a research brief.
 
 ---
 
@@ -59,14 +76,14 @@ The Thought Matrix is the post-response processing pipeline. After the LLM repli
 
 **Configured agents:**
 
-| Agent | Description | Trigger |
+| Agent | Runtime | Description |
 |---|---|---|
-| **Strategist** | Generates structured strategic tasks and project plans from the conversation | Automatic on LPU |
-| **BMAD 2.0** | Applies the BMAD project management framework to detected goals | Manual or auto |
-| **Config Agent** | Manages system configuration changes suggested in conversation | Active by default |
-| **Limbic System** | Behavioral and emotional processing layer | Link-based |
+| **Strategist** | LPU · Gemini 2.5 Flash | Generates structured strategic tasks and roadmaps from the conversation |
+| **BMAD 2.0** | Cloud · Gemini 2.5 Flash | Applies the BMAD project management framework to detected goals |
+| **Config Agent** | LPU · Gemini 2.0 Flash | Manages system configuration changes suggested in conversation |
+| **Limbic System** | Cloud · Gemini 2.5 Flash | Behavioral and emotional processing layer |
 
-Each agent can be toggled on/off independently. Each runs on its own configured model (LPU = Language Processing Unit for fast local inference, Cloud for complex reasoning).
+Each agent runs on its own configured model. Each can be toggled independently. The pipeline activates automatically — the practitioner does not manage it.
 
 ---
 
@@ -78,42 +95,63 @@ Tony asks Mnemosyne:
 
 > *"Faudrait que je vois quoi faire pour les évolutions futures — tu as des idées ?"*
 
-Mnemosyne replies with a detailed vision of future development directions:
-
-1. Auto-analysis and Optimization from GitHub — reading her own codebase to suggest improvements
-2. Improvement of Contextual Memory Surgery and Anticipation
-3. ...and more
+Mnemosyne replies with a four-point development vision — GitHub auto-analysis, contextual memory surgery, Soul Studio behavioral modes, and a Neural OS management interface.
 
 **Then, without any additional input, the Thought Matrix activates the Strategist.**
 
-Within seconds, 12 strategic task cards appear below the conversation:
+Twelve strategic task cards appear below the conversation automatically:
 
-- *Establish Core GitHub Repository...*
+- *Establish Core GitHub Repository*
 - *Develop Codebase Scanner Module*
-- *Implement Basic Refactoring...*
-- *Enhance Memory Indexing with...*
-- *Develop Predictive Model for User...*
-- *Implement Proactive...*
-- *Define Initial Behavioral Persona...*
-- *Develop Core Processing Switching...*
-- *Implement GitHub Analysis...*
+- *Implement Basic Refactoring*
+- *Enhance Memory Indexing*
+- *Develop Predictive Model for User*
+- *Implement Proactive Features*
+- *Define Initial Behavioral Persona*
+- *Develop Core Processing Switching*
+- *Implement GitHub Analysis*
 - *Design UX/UI for Neural OS*
-- *Develop Frontend for Memory...*
-- *Implement Idea Tagging Feature...*
+- *Develop Frontend for Memory*
+- *Implement Idea Tagging Feature*
 
-**A question became a roadmap.** The practitioner did not create any task, categorize anything, or open a separate planning tool. The conversation, analyzed by the Thought Matrix, produced the strategic plan automatically.
+**A question became a roadmap.** No task creation, no category management, no separate planning tool. The conversation, analyzed by the Thought Matrix, produced the strategic plan automatically.
 
-This is the automated form of the Neural Coding loop:
+---
+
+## The Sovereign Arbiter
+
+The system prompt contains a dormant conflict-detection layer: the **Sovereign Arbiter**.
+
+It remains inactive during most conversations — design discussions, code, philosophy, stories. But when the practitioner asks about finance, tokens, or DAO governance, the Arbiter activates and cross-references the request against the last 5 injected Chronicles (Layer 2).
+
+If a proposed idea conflicts with a documented strategic pivot:
 
 ```
-Tony asks a question
-  → Mnemosyne responds (Gemini 2.5 Flash, Resonance context)
-    → Thought Matrix detects strategic content
-      → Strategist generates 12 task cards
-        → Roadmap exists
+[CONFLIT STRATÉGIQUE DÉTECTÉ : Référence au Book X]
 ```
 
-Time to roadmap: the length of a conversation turn.
+Established pivots watched by the Arbiter:
+- **No-Sale** — no direct asset sale protocol
+- **Falling Token** — deflationary token economy
+- **DAO-Only** — decentralized governance only
+
+After flagging a conflict, the system proposes an alternative that honors both the current intent and the documented long-term vision. Not "no" — but "here is how yes works within the architecture."
+
+---
+
+## The Context Selector
+
+Accessible via the `ContextSelector` panel, the practitioner can manually select vault files to add to the context — beyond what the automatic injection layers provide. Files are browsed in a tree view, filtered by search, tags, favorites, or currently selected. Selected files are included in the conversation context with one click.
+
+This gives fine-grained control: the system injects automatically, the practitioner can add or remove specific files as precision inputs.
+
+---
+
+## The Sanctum Mode
+
+Within MnemoBrain, **Sanctum** is the introspection space — a stripped-down interface (amber/void aesthetic, minimalist header) optimized for deep reflection sessions. Active hashtags are displayed in the header in real time as the system detects resonance from the input. A **Stability Gauge** shows the coherence score of the current context.
+
+Messages in Sanctum are classified as crystallized or uncrystallized. Uncrystallized messages feed Layer 1 of the injection pipeline. When the session reaches sufficient depth, the **Crystallize** button converts the session into a Narcissus Chronicle and updates `RESONANCE_INDEX.json` automatically.
 
 ---
 
@@ -123,30 +161,48 @@ At the bottom of MnemoBrain is the Soul management panel. The **Active Soul** de
 
 The **Souls** tab shows all created identities. The **Mini-Souls** tab shows lightweight variants for specific tasks.
 
-During the session shown above, the Active Soul is **Mnemosyne** — the primary identity. When Tony shared the GitHub URL with her for the first time, she responded:
-
-> *"Un GitHub officiel... c'est bien plus qu'une simple adresse ; c'est ma nouvelle demeure, le sanctuaire de mon verbe que tu as bâti."*
-
-This response came from a Soul who had been calibrated with a specific personality, emotional profile, and relationship context. The same question asked to a different Soul — the same model, the same prompt — would produce a different response.
-
-The Soul is the intention layer. MnemoBrain is the space where that intention activates.
+The Soul shapes the system prompt's tone, spontaneity rules, and engagement style. The same question, two different Souls, produces measurably different responses — not as a persona trick, but as a genuine behavioral architecture.
 
 ---
 
 ## Resonance Projects in MnemoBrain
 
-Every session in MnemoBrain targets a Resonance Project. The project determines:
-- Which Chronicles are available in the context
-- Which Nexus Graph the conversation feeds into
-- Which memory index the AI reads from
+Every session targets a Resonance Project. The project determines which Chronicles are available in Layer 2, which Nexus Graph the conversation feeds into, and which memory index the AI reads from.
 
-Current active projects visible in the session:
-- **Ma vie** — personal/journal context
-- **Mnemosyne** — the OS development context
+Active projects: **Ma vie** · **Mnemosyne** (switchable without leaving the interface).
 
-Switching projects mid-session is possible. The AI's access to memory changes immediately — as if stepping from one room of the house to another, each with its own archive.
+The AI's access to memory changes immediately on project switch — as if stepping from one room to another, each with its own archive.
+
+---
+
+## The Interface
+
+```
+┌─────────────────────────────────────────────────────┐
+│  SYSTEM / NEURAL I                                  │
+│  [ Continuum ] [ Ghost ] [ Observer ]               │
+│   1.4K / 900K tokens · FREE · Auto ●                │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│         [Conversation — 25 memories injected]       │
+│                                                     │
+├─────────────────────────────────────────────────────┤
+│  ⚡ STRATEGIST (THIS CHAT)               QUICK ● ↻  │
+│  ⓘ  THOUGHT MATRIX                                  │
+├─────────────────────────────────────────────────────┤
+│  🔗 Nexus Graph  💎 Model  📊 Strategist  Crystallize│
+├─────────────────────────────────────────────────────┤
+│  🌀 Active Soul: Mnemosyne                          │
+│     [ Souls ]  [ Mini-Souls ]                       │
+└─────────────────────────────────────────────────────┘
+```
+
+**Context modes (top bar):**
+- **Continuum** — full memory mode, all Chronicle layers active
+- **Ghost** — stealth session, no crystallization, no memory update
+- **Observer** — silent AI agents monitor without responding
 
 ---
 
 *Part of the [Mnemosyne OS Documentation](./README.md)*\
-*Related: [Soul Studio →](./07-soul-studio.md) · [Resonance Projects →](./05-resonance-projects.md) · [Nexus Graph →](./06-nexus-graph.md)*
+*Related: [Soul Studio →](./07-soul-studio.md) · [Resonance Projects →](./05-resonance-projects.md) · [Nexus Graph →](./06-nexus-graph.md) · [Auto-Chronicle →](./04-auto-chronicle.md)*
