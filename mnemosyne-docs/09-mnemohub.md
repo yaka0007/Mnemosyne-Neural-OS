@@ -50,7 +50,6 @@ At the time of writing, the following modules are available or in active develop
 | **MnemoShare** | Social | Controlled sharing of Resonance artifacts |
 | **MnemoFileSystem** | System | Deep file system management and indexing |
 | **MnemoGuide** | Onboarding | Contextual guidance and protocol walkthroughs |
-| **MnemoX** | Integration | X (Twitter) integration |
 | **GmailApp** | Integration | Gmail integration |
 | **DriveApp** | Integration | Google Drive integration |
 | **PolicyStudio** | Security | Fine-Grained AI Access Control — rule engine, panic lockdown |
