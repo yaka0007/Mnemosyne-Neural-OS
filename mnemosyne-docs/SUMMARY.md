@@ -29,3 +29,4 @@
 ## Architecture
 
 * [Architecture Overview](15-architecture.md)
+* [The Resonance Engine — Liquid Prompt & Nexus Graph](16-resonance-engine.md)
