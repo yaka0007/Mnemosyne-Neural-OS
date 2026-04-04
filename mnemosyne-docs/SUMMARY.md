@@ -2,6 +2,7 @@
 
 ## Mnemosyne OS Documentation
 
+* [On the Real Problem — Preface](00-preface.md)
 * [Welcome](README.md)
 
 ## Core Concepts
