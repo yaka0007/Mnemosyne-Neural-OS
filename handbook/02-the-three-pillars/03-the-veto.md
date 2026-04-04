@@ -181,5 +181,74 @@ This is not a workaround for the lack of technical knowledge. It is a new audit 
 
 ---
 
+## Active Verification — The Real Divide Between Neural Coding and Vibe Coding
+
+There is a clean line between vibe coding and Neural Coding. It is not about tooling, speed, or output volume. It is about what happens after the AI produces something.
+
+**Vibe coding** operates on a surface-level verification loop:
+
+> *"Does it run? Does it look like what I wanted? Ship it."*
+
+The AI is trusted implicitly. The output is evaluated aesthetically or functionally — does it compile, does it look right, does it mostly work. The practitioner stays in flow by not asking too many questions.
+
+**Neural Coding** operates on a deeper verification loop:
+
+> *"Is this true? Is this correct in context? Does it reflect a reality that only I can confirm?"*
+
+The distinction is not skepticism toward the AI. It is the recognition that the AI has context it was given — but not context it lives in. The practitioner has ground truth the AI never had access to.
+
+---
+
+### The Documentation Case Study
+
+During a documentation session, an AI agent produced a body of technical articles describing Mnemosyne OS as "open source." The phrasing was natural. The articles were well-written. The claim was used consistently across multiple pieces.
+
+It was false.
+
+The core application is proprietary. The repository the AI pointed to contains documentation — not the application source code. The npm package is public. The GitBook is public. The application itself is not.
+
+No AI agent could have caught this error from within the session. The AI had no way to know what was in the private repository. The error was confident, consistent, and invisible to any evaluation that didn't include external ground truth.
+
+The practitioner caught it. One observation: *"On est plus trop open source vu que le code de Mnemosyne est sur un dépôt privé."*
+
+Seven files corrected. Two public documentation pages updated. One commit with an explicit rationale explaining what was wrong and why it mattered for credibility with technical reviewers.
+
+This is the Veto applied to documentation.
+
+---
+
+### Why This Matters
+
+The pattern generalizes.
+
+Any AI-produced artifact — code, documentation, marketing copy, architecture diagrams — can be technically coherent and contextually wrong. The AI was confident. The output looked right. The error was real.
+
+The practitioner's role in Neural Coding is not to generate — the AI does that. It is to *verify* with the one thing the AI cannot have: ground truth about the practitioner's own situation.
+
+- Does this claim about the codebase match how the codebase actually works?
+- Does this description of the product match what we actually built?
+- Does this architectural decision match what we actually decided?
+- Is this "feature" something we actually have, or something that sounds plausible?
+
+Active verification is not distrust. It is presence. It is the practitioner staying connected to the work rather than delegating verification along with generation.
+
+---
+
+### The Vibe Coding Comparison, Precisely
+
+In vibe coding, verification is functional: *"Does the output satisfy the immediate request?"*
+
+In Neural Coding, verification is truthful: *"Is the output accurate in context?"*
+
+The difference becomes critical at scale. Functional verification works fine when the AI's output is self-contained. It fails when the output makes claims about the world, about the codebase, about decisions that were made — because those claims require external ground truth that only the practitioner holds.
+
+Vibe coding builds faster. It also accumulates invisible errors — things that work but aren't right, things that sound correct but aren't true, decisions that got made in the AI's proposal and were never consciously owned by the practitioner.
+
+Neural Coding is slower by design. The verification loop takes time. The Veto takes attention. The ground-truth check requires the practitioner to remain present and informed.
+
+The tradeoff is coherence. A system built with active verification carries its practitioner's actual intentions — not the AI's best approximation of them.
+
+---
+
 *Previous: [Architectural Judgment ←](./02-architectural-judgment.md)*  
 *Next: [Anti-Patterns →](../03-anti-patterns.md)*
