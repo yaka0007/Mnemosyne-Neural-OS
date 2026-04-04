@@ -2,6 +2,13 @@
 
 > *Most tools store what happened. Mnemosyne captures who you were when it happened — and makes that state retrievable, transmissible, and alive.*
 
+**This documentation covers what you can do with Mnemosyne OS** — the use cases, the mechanisms, the architecture, and the Chronicle system that makes it different from any other AI memory tool.
+
+> 📥 **Get Mnemosyne OS**
+> The core engine is open-source and available on GitHub:
+> [**github.com/yaka0007/Mnemosyne-Neural-OS**](https://github.com/yaka0007/Mnemosyne-Neural-OS)
+> — Download · Star · Contribute
+
 ---
 
 ## Three People Who Need Mnemosyne
@@ -72,4 +79,4 @@ This is a real session. Real timestamps. Real code.
 
 ---
 
-*Mnemosyne OS is open-core. The core engine is published at [github.com/yaka0007/Mnemosyne-Neural-OS](https://github.com/yaka0007/Mnemosyne-Neural-OS)*
+*Mnemosyne OS is open-core, built by one practitioner using the Neural Coding method. — [github.com/yaka0007/Mnemosyne-Neural-OS](https://github.com/yaka0007/Mnemosyne-Neural-OS)*
