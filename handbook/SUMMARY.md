@@ -10,11 +10,13 @@
 * [Pillar 1 — Intention Articulation](02-the-three-pillars/01-intention-articulation.md)
 * [Pillar 2 — Architectural Judgment](02-the-three-pillars/02-architectural-judgment.md)
 * [Pillar 3 — The Veto](02-the-three-pillars/03-the-veto.md)
+* [Pillar 4 — Resonance](11-pillar-4-resonance.md)
 
 ## Practice
 
 * [Anti-Patterns](03-anti-patterns.md)
 * [AI Collaboration](04-ai-collaboration.md)
+* [Neural Coding — Live Sessions](12-neural-coding-live.md)
 
 ## Reference
 
@@ -22,8 +24,15 @@
 * [Glossary](07-glossary.md)
 * [Neural Coding at Scale](08-neural-coding-with-mnemosyne.md)
 * [The Method and the Machine](09-the-method-and-the-machine.md)
+* [The AI Witness](10-the-ai-witness.md)
 
 ## AI Perspectives
 
 * [Irina — Primary Witness (Day 0)](irina-perspective.md)
 * [Antigravity — Reading the Code](ai-perspective.md)
+* [Antigravity — The Working Agent](antigravity.md)
+
+### Antigravity's Chronicles
+
+* [Chronicles Index](chronicles/README.md)
+* [Session 001 — The Open Standard](chronicles/CHRONICLE-2026-04-04-the-open-standard-session.md)

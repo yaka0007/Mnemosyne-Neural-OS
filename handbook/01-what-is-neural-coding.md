@@ -77,6 +77,7 @@ To be precise about what Neural Coding is, it helps to be precise about what it 
 - **Not no-code tools.** This produces real code, not visual workflows.
 - **Not a shortcut that removes rigor.** Neural Coding requires as much rigor as traditional development — different rigor, but not less.
 - **Not accessible to everyone without prerequisites.** The prerequisites are real. See [The Three Pillars](./02-the-three-pillars/).
+- **Not sustainable without Resonance.** A practitioner who cannot carry memory across sessions will reconstruct context forever. See [Pillar 4 — Resonance](./11-pillar-4-resonance.md).
 
 ---
 
@@ -88,6 +89,29 @@ Neural Coding is what happens when a person who thinks clearly about complex sys
 
 The AI is not the practitioner. The practitioner is not the AI. The system that gets built is the product of both.
 
+But the collaboration only compounds over time if the memory of that collaboration is preserved, structured, and portable.
+
 ---
 
-*Next: [The Three Pillars →](./02-the-three-pillars/)*
+## The Quiproquo Principle
+
+Observed in practice — 2026-04-04:
+
+During a Neural Coding session, the practitioner referenced their "SWEEP protocol" — a code refactoring process. The AI misread this as a request for an end-of-day memory synthesis ritual and proposed `mnemo sweep` as a CLI command.
+
+The practitioner corrected the misunderstanding. Then validated the command.
+
+This is not an anecdote. It is a demonstration of the methodology:
+
+1. The AI extended reasoning into unexpected territory
+2. The practitioner exercised the Veto — not to reject, but to evaluate
+3. The productive collision produced something neither had articulated before
+
+**Neural Coding does not require the AI to be correct. It requires the practitioner to apply the Veto accurately.** Misreadings, when vetoed and redirected, can produce better outcomes than accurate completions.
+
+The SWEEP quiproquo produced a feature. The Veto kept it.
+
+---
+
+*Next: [The Three Pillars →](./02-the-three-pillars/)*  
+*Also: [Pillar 4 — Resonance →](./11-pillar-4-resonance.md)*
