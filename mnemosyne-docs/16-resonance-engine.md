@@ -311,5 +311,104 @@ This is the economic design behind the Liquid Prompt: local model for triage, cl
 
 ---
 
-*Part of the [Mnemosyne OS Documentation](./README.md)*\
+## Beyond Standard RAG — Why This Is Different
+
+Standard RAG (Retrieval-Augmented Generation) systems work like this:
+
+1. Chunk documents into fixed-size windows
+2. Embed the chunks as vectors
+3. At query time, retrieve the N most similar chunks by cosine distance
+4. Inject them into the prompt
+
+This works. It's also where most systems stop.
+
+The Resonance Engine was designed around the limitations of this approach — specifically three that matter in the context of months-long, complex practitioner work.
+
+---
+
+### Problem 1 — RAG Is Temporally Blind
+
+A standard vector database treats a document written in month 1 and a document from month 6 as equally current. If you changed your mind about something — and wrote that change down — the retrieval may surface both the old position and the new one simultaneously, with no way to know which supersedes the other.
+
+**How the Resonance Engine handles it:**
+
+The 3-layer structure is inherently temporal:
+
+- **Layer 1** — the live, uncrystallized session (the present)
+- **Layer 2** — the last 5 Chronicles in sequence (recent history, in order)
+- **Layer 3** — the semantic index (conceptual memory, with confidence scores)
+
+Layer 2 is explicitly ordered. The most recent Chronicle has primacy. If a decision evolved over time, the latest Chronicle reflects the current position — and it's injected before the older conceptual summaries.
+
+The model receives context in temporal order, not similarity order.
+
+---
+
+### Problem 2 — RAG Cannot Detect Contradictions
+
+Standard retrieval has no concept of conflict. If your vault contains "we'll use PostgreSQL" from month 2 and "we switched to SQLite, PostgreSQL ruled out" from month 4, a similarity search on "database architecture" may return both fragments. The model has no way to know one made the other obsolete.
+
+**How the Resonance Engine handles it:**
+
+The **Sovereign Arbiter** — a dormant state machine embedded in the base identity layer — is specifically designed for strategic contradiction detection.
+
+```
+New message arrives
+  ↓
+Arbiter activates (selectively, for strategic topics)
+  ↓
+Compares current intent against established pivots from Layer 2 (Chronicles)
+  ↓
+Conflict detected → [CONFLIT STRATÉGIQUE DÉTECTÉ: Référence au Book X]
+  ↓
+Proposes alternative that honors both current intent and established pivots
+```
+
+The system doesn't just retrieve — it arbitrates. An established decision in a Chronicle is treated as a constraint, not just context. The system asks: *"Does what the practitioner is asking now contradict what they decided before?"*
+
+This is temporal consistency enforcement at the retrieval layer. Not post-hoc. Not left to the model to figure out. Built into the pipeline.
+
+---
+
+### Problem 3 — RAG Injects Raw Chunks
+
+Standard RAG injects raw text windows — whatever was in the document at the retrieval chunk boundary. The model gets raw content, and has to figure out relevance, salience, and how to weight it relative to the query.
+
+**How the Resonance Engine handles it:**
+
+The Distiller pre-processes every chunk *before* any conversation starts. Each semantic concept (hashtag entry) becomes a single sentence + a confidence score (`0.0 → 1.0`).
+
+At query time, the model doesn't get raw chunks. It gets:
+- Pre-computed 1-sentence summaries, already distilled by a local LLM
+- Confidence scores that reflect the quality of the distillation
+- Priority scores that reflect the relative importance of the concept in the vault
+
+Maximum 5 hashtag summaries per query. Each one sentence. Total token budget for Layer 3 RAG: bounded and predictable.
+
+The economic design is deliberate:
+
+| Phase | Model | Cost |
+|---|---|---|
+| Distillation (semantic work) | Local Ollama | Free, async, once |
+| Conversation (query response) | Cloud LLM | Per-interaction, bounded |
+
+The expensive work happens once, locally, before the conversation starts. The cloud model never receives raw vault content.
+
+---
+
+### Summary: Structural Differences
+
+| Dimension | Standard RAG | Resonance Engine |
+|---|---|---|
+| Temporal awareness | None — all chunks equally current | 3-layer: present / recent history / conceptual |
+| Contradiction handling | None — retrieves all matches | Sovereign Arbiter — flags conflicts with established pivots |
+| Chunk granularity | Fixed window, raw text | Pre-distilled summaries + confidence scores |
+| Token cost at query time | Unbounded | Bounded — max 5 × 1-sentence summaries from Layer 3 |
+| Data locality | Cloud retrieval service | 100% local — embedding, retrieval, distillation |
+| Retrieval mechanism | Cosine similarity | Cosine + hashtag detection + keyword DNA |
+
+The Resonance Engine is not a better RAG. It is a different approach to retrieval — built specifically for the use case of a single practitioner working on complex projects over months, where temporal consistency and contradiction detection are not edge cases but the primary requirements.
+
+---
+
 *Related: [Architecture Overview →](./15-architecture.md) · [MnemoBrain →](./11-mnemobrain.md) · [The Nexus Graph →](./06-nexus-graph.md) · [AI Configuration →](./12-ai-configuration.md)*
