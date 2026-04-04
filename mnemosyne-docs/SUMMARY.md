@@ -31,3 +31,4 @@
 
 * [Architecture Overview](15-architecture.md)
 * [The Resonance Engine — Liquid Prompt & Nexus Graph](16-resonance-engine.md)
+* [Local-First Sovereignty — The Security Model](17-security-sovereignty.md)
