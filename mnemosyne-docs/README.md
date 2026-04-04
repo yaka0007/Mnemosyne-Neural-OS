@@ -8,10 +8,10 @@
 > - **This book** (the system): [mnemosyne-os.gitbook.io/mnemosyne-os-docs](https://mnemosyne-os.gitbook.io/mnemosyne-os-docs/)
 > - **Neural Coding Handbook** (the methodology used to build it): [mnemosyne-os.gitbook.io/neural-coding-by-mnemosyne-os](https://mnemosyne-os.gitbook.io/neural-coding-by-mnemosyne-os/)
 
-> 📥 **Get Mnemosyne OS**
-> The core engine is open-source and available on GitHub:
+> 📖 **Documentation & Public Resources**
+> The full architecture documentation and public resources are on GitHub:
 > [**github.com/yaka0007/Mnemosyne-Neural-OS**](https://github.com/yaka0007/Mnemosyne-Neural-OS)
-> — Download · Star · Contribute
+> — Docs · Handbook · Contribute
 
 ---
 
