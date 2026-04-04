@@ -17,6 +17,7 @@
 * [Soul Studio](07-soul-studio.md)
 * [MnemoHub](09-mnemohub.md)
 * [MnemoBrain — The Thinking Interface](11-mnemobrain.md)
+* [AI Configuration — Provider Orchestration](12-ai-configuration.md)
 
 ## Living Proof
 
