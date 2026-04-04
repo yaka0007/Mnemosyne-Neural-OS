@@ -120,6 +120,39 @@ Your idea, whatever it is, can benefit from a real private AI memory without you
 
 ---
 
+## The Legibility Test
+
+There is a proof of Neural Coding that was never designed as a proof. It happened at the end of a late documentation session, approximately three months after the Resonance Engine was built.
+
+A new AI agent — with no prior context on Mnemosyne, no previous conversation history, no briefing beyond what it could read from the code itself — was asked to analyze the Resonance Engine and document how it worked.
+
+In a few minutes, the agent:
+
+- Identified that `resonanceDistiller.worker.ts` implements a queue-based background processor with three execution modes: `local` (Ollama), `cloud` (Gemini), and `local_then_cloud`
+- Confirmed the exact distillation prompt strategy: one sentence summary + CONFIDENCE score between 0 and 1
+- Traced the Layer 1 / Layer 2 / Layer 3 memory injection chain in `useNeuralLink.ts` — live session RAM → last 5 Chronicles → hashtag RAG from RESONANCE_INDEX
+- Located the Sovereign Arbiter and described its dormant/active state machine correctly
+- Documented the Nexus Graph physics simulation: repulsion force `100/d²`, link attraction, velocity damping at `0.9`, priority glow threshold at `0.8`
+- Produced the end-to-end pipeline diagram from file write → Sentinel → index update → Distiller → Liquid Prompt → LLM → Chronicle → next session Layer 2
+
+All of this from cold.
+
+**Why this matters:** A brittle system — one where architecture decisions exist only in the memory of the person who made them — collapses when the author is not available. It cannot be documented without the author. It cannot be verified by a new agent. It cannot be extended safely by a contributor who was not there.
+
+A system built with Neural Coding produces code that carries its own architecture. The naming is expressive. The patterns repeat consistently. The separation of concerns is real. The intent of each layer is legible from the code itself.
+
+The Resonance Engine — its distiller, its liquid prompt, its Nexus Graph — was reverse-engineered in minutes not because AI can do magic, but because the code was written clearly enough that there was nothing to decode. The architecture was the documentation.
+
+This is the property that Neural Coding produces that metrics do not capture: **code that does not require its author to be understood.**
+
+It is also the property that makes a codebase inherently collaborative with AI. Every future agent that touches this system can verify its own understanding against the code. Every new module added can be validated against the existing patterns. The system teaches new contributors — human or AI — how to contribute correctly, just by being consistent.
+
+> *The test of a methodology is not what it produces at the end. It is whether what it produces can survive the author's absence.*
+
+Mnemosyne passed that test on a documentation session three months after the Resonance Engine was written.
+
+---
+
 ## The Remaining Thesis
 
 This case study is one data point. It is a strong one — the system is real, the code is audited, the tests are green.
