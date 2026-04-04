@@ -4,6 +4,10 @@
 
 **This documentation covers what you can do with Mnemosyne OS** — the use cases, the mechanisms, the architecture, and the Chronicle system that makes it different from any other AI memory tool.
 
+> 📖 **Two GitBooks — One Ecosystem**
+> - **This book** (the system): [mnemosyne-os.gitbook.io/mnemosyne-os-docs](https://mnemosyne-os.gitbook.io/mnemosyne-os-docs/)
+> - **Neural Coding Handbook** (the methodology used to build it): [mnemosyne-os.gitbook.io/neural-coding-by-mnemosyne-os](https://mnemosyne-os.gitbook.io/neural-coding-by-mnemosyne-os/)
+
 > 📥 **Get Mnemosyne OS**
 > The core engine is open-source and available on GitHub:
 > [**github.com/yaka0007/Mnemosyne-Neural-OS**](https://github.com/yaka0007/Mnemosyne-Neural-OS)

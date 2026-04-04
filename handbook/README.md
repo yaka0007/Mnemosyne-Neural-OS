@@ -12,6 +12,10 @@ It emerged from a concrete project: [Mnemosyne Neural OS](https://github.com/yak
 
 That is one case. This handbook is the attempt to extract what can be generalized from it.
 
+> 📖 **Two GitBooks — One Ecosystem**
+> - **This book** (methodology): [mnemosyne-os.gitbook.io/neural-coding-by-mnemosyne-os](https://mnemosyne-os.gitbook.io/neural-coding-by-mnemosyne-os/)
+> - **Mnemosyne OS Docs** (the system built with this methodology): [mnemosyne-os.gitbook.io/mnemosyne-os-docs](https://mnemosyne-os.gitbook.io/mnemosyne-os-docs/)
+
 Some of what follows has been tested repeatedly. Some of it is still being refined. The honest position is that Neural Coding is a documented practice — not an established field with decades of peer review.
 
 ---
@@ -126,3 +130,4 @@ The methodology will be as strong as the cases that test it. One is just the beg
 
 *Published under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Share freely with attribution.*
 
+*→ Read the system built with this methodology: [Mnemosyne OS Documentation](https://mnemosyne-os.gitbook.io/mnemosyne-os-docs/)*
