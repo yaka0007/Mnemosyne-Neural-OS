@@ -48,13 +48,13 @@ The permission system uses a namespaced scope model:
 
 | Permission | Meaning |
 |---|---|
-| `mnemoz:resonance-read` | Read access to the Resonance context layer |
-| `mnemozui-overlay` | Can render UI elements over the Mnemosyne interface |
-| `sandboxfs-read` | Read access to sandboxed filesystem paths |
-| `sandboxfs-write-scoped` | Write access, scoped to declared paths only |
-| `sandboxboxnetwork` | External network access (flagged, visible to user) |
+| `mnemo:resonance-read` | Read access to the Resonance context layer |
+| `mnemo:ui-overlay` | Can render UI elements over the Mnemosyne interface |
+| `sandbox:fs-read` | Read access to sandboxed filesystem paths |
+| `sandbox:fs-write-scoped` | Write access, scoped to declared paths only |
+| `sandbox:network` | External network access (flagged, visible to user) |
 
-No module can access host resources outside its declared permissions. The sandbox enforces this at runtime. A module requesting `sandboxboxnetwork` is clearly visible to the user — no hidden exfiltration is architecturally possible.
+No module can access host resources outside its declared permissions. The sandbox enforces this at runtime. A module requesting `sandbox:network` is clearly visible to the user — no hidden exfiltration is architecturally possible.
 
 This permission model is the public-facing expression of the same sovereignty principle that governs the core application: **every access is declared, visible, and user-controlled.**
 
@@ -121,12 +121,21 @@ That last point is the differentiation. Most app store ecosystems require the pl
 
 MnemoHub is in active beta. The web store and in-app store are operational. The developer certification program is open for early applications. The catalogue grows as the ecosystem develops.
 
+### Review & Rating System *(coming soon)*
+
+The module detail pages already include the full review and rating infrastructure — 5-star rating widget, written review field, aggregate score display on catalogue cards. The UI is complete and visible in the store today.
+
+The backend persistence layer for storing and retrieving community reviews is in development. When activated, this turns the catalogue into a community-curated quality signal — where BMAD 2.0 at 4.8★ or Strategist at 4.5★ becomes public social proof for new users evaluating the ecosystem.
+
 **Planned additions:**
+
 - Extended language packs (zh-CN, ar, ru) — to be distributed as MnemoHub modules
 - Community-published Skill Packs for local LLM workflows
 - MnemoForge-built apps (AI-generated modules submitted to the store)
+- Community reviews and ratings — backend activation
+- Publisher branding update: `Mnemosyne OS ✓` (replacing current `XPACEGEMS ✓`)
 
 ---
 
 *Part of the [Mnemosyne OS Documentation](./README.md)*\
-*Related: [MnemoForge →](./20-mnemoforge.md) · [Local-First Sovereignty →](./17-security-sovereignty.md) · [Multilanguage →](./19-multilanguage.md)*
+*Related: [Local-First Sovereignty →](./17-security-sovereignty.md) · [Multilanguage →](./19-multilanguage.md) · [Architecture Overview →](./15-architecture.md)*
