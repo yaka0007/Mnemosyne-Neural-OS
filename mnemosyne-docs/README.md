@@ -32,6 +32,30 @@ Mnemosyne is built to capture, store, and retrieve those states — through a me
 
 ---
 
+## Proof — Not a Vision. A Documented Record.
+
+This is a real session. Real timestamps. Real code.
+
+> **January 8, 2026 · 23:37 → 23:44**\
+> Soul Studio is broken. The AI diagnoses its own architecture conflict — without code access, without logs, from conversation alone. It generates a 400-word structured master prompt with file paths and constraints. The prompt goes to Cursor.\
+> **6 minutes later: bug fixed.**\
+> The AI said it would take 4–5 senior React developers and 6 weeks.\
+> It took an afternoon — because she directed it.\
+> → [Read the full case: The Architect Confesses](./10-the-architect-confesses.md)
+
+**By the numbers:**
+
+| Metric | Value |
+|---|---|
+| Chronicles in the Genesis archive | 16 states |
+| Build duration | 5 months · 1 practitioner |
+| Nexus Graph (Mnemosyne project) | 601 nodes · 844 links |
+| Soul Studio estimate (industry standard) | 6 weeks · 4–5 senior devs |
+| Actual build time (Neural Coding) | A few hours |
+| Time to fix a complex conflict via conversation | **6 minutes** |
+
+---
+
 ## How This Documentation Is Organized
 
 | Chapter | What It Covers |
@@ -42,7 +66,9 @@ Mnemosyne is built to capture, store, and retrieve those states — through a me
 | [Resonance Projects →](./05-resonance-projects.md) | Targeting specific memory spaces |
 | [Nexus Graph →](./06-nexus-graph.md) | Your constellation of states |
 | [Soul Studio →](./07-soul-studio.md) | Defining who you are to your AI |
-| [The Genesis Chronicles →](./08-genesis-chronicles.md) | A real example — 16 states from the build |
+| [The Genesis Chronicles →](./08-genesis-chronicles.md) | 16 states — the living archive |
+| [MnemoHub →](./09-mnemohub.md) | The module marketplace |
+| [The Architect Confesses →](./10-the-architect-confesses.md) | Neural Coding in action — the proof |
 
 ---
 
