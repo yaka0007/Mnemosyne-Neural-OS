@@ -62,29 +62,53 @@ This permission model is the public-facing expression of the same sovereignty pr
 
 ## The Developer Program — Mnemosyne Certified
 
-MnemoHub is not just a distribution channel. It includes a **developer certification program** that defines three levels of module quality and integration depth.
+MnemoHub includes a **developer certification program** — designed to be earned, not applied for. The bar is simple: demonstrated work, documented quality, and alignment with the Mnemosyne OS standards.
 
-### The Three Certifications
+The program has two levels.
 
-**CERT-001 — Stabilité opérationnelle**
-Base certification. Validates that the module runs on the hybrid CLI/Electron architecture with full resilience: quality sweeps, auto-healing, and Panic Lockdown compatibility. Required for all published modules.
+---
 
-**CERT-002 — Souveraineté & SCC**
-Sovereignty certification. Validates integration with the Sovereignty Command Center. Strict FGAC compliance and multi-project isolation. Required for any module that touches the vault or user identity.
+### Level 1 — Trusted Developer
 
-**CERT-003 — Résonance inter-citadelles**
-Resonance certification. Validates peer-to-peer capable modules (Neural-Link / libp2p). Shadow Sync compatibility. Zero-Raw-Data in transit — no clear-text user data leaves the device during P2P sync.
+A Trusted Developer is a builder who has demonstrated they can produce quality extensions for Mnemosyne OS. The requirements are straightforward:
 
-### The Mnemosyne Certified Badge
+- **Works with the Mnemo-SDK** — uses the official tooling and follows the documented development rules
+- **Quality demonstrated by output** — the extensions are complete, functional, and respect the permission model
+- **Alignment with Mnemosyne principles** — local-first, sovereign, no hidden data access
 
-Beyond the three technical tiers, the **Mnemosyne Certified** designation is the top-level badge for modules that have passed:
+There is no formal application. Trusted Developer status is validated by the work itself.
 
-- Full security audit
-- Tier S API compliance
-- Complete permission declaration
-- MnemoHub visibility boost (featured placement)
+---
 
-> *"Mnemosyne Certified" is the signal that a module has been built to the same sovereignty and security standards as the core application.*
+### Level 2 — Mnemosyne Certified
+
+The **Mnemosyne Certified** badge is the top-level designation. It requires something concrete: a track record.
+
+> *A developer must have published at least several working extensions before being eligible for Mnemosyne Certified status.*
+
+This requirement exists by design. The certification isn't a promise — it's a recognition of demonstrated practice. A developer who has published multiple solid extensions has already proven they understand the ecosystem, respect the architecture, and deliver quality. The badge makes that visible to users and to the platform.
+
+Mnemosyne Certified brings:
+- Featured placement in the MnemoHub catalogue
+- Priority visibility for new module releases
+- Access to advanced platform APIs
+- The `Mnemosyne Certified ✓` badge on the developer profile and module cards
+
+---
+
+### Technical Quality Badges
+
+Independently of certification level, modules can earn specific technical validation badges:
+
+| Badge | What it validates |
+|---|---|
+| **CERT-001** | Operational stability — resilience, auto-healing, Panic Lockdown compatibility |
+| **CERT-002** | Sovereignty — FGAC compliance, SCC integration, multi-project isolation |
+| **CERT-003** | Resonance — Neural-Link (libp2p) compatibility, Zero-Raw-Data in transit |
+
+These are technical labels, not tiers. A module can carry one, two, or all three depending on what it does.
+
+---
 
 ### Developer Tooling
 
@@ -97,6 +121,12 @@ Beyond the three technical tiers, the **Mnemosyne Certified** designation is the
 | **manifest.json** | Declarative module definition (schemaVersion, id, version, permissions, entrypoints) |
 
 ---
+
+### Revenue Model *(coming soon)*
+
+Every module on MnemoHub can be published as **free** or **paid**. When the revenue model activates, developers who publish paid modules will receive a share of each sale — a direct monetization path within the ecosystem.
+
+The specifics of the revenue split and payout model are in preparation and will be documented when the system goes live.
 
 ## Why MnemoHub Changes the Product Category
 
