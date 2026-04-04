@@ -20,3 +20,4 @@
 ## Living Proof
 
 * [The Genesis Chronicles](08-genesis-chronicles.md)
+* [The Architect Confesses](10-the-architect-confesses.md)
