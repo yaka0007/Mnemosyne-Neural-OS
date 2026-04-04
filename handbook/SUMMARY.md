@@ -21,6 +21,7 @@
 * [Case Study: Mnemosyne Neural OS](06-case-study-mnemosyne.md)
 * [Glossary](07-glossary.md)
 * [Neural Coding at Scale](08-neural-coding-with-mnemosyne.md)
+* [The Method and the Machine](09-the-method-and-the-machine.md)
 
 ## AI Perspectives
 
