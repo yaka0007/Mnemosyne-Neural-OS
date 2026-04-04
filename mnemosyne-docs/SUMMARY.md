@@ -19,6 +19,7 @@
 * [MnemoBrain — The Thinking Interface](11-mnemobrain.md)
 * [AI Configuration — Provider Orchestration](12-ai-configuration.md)
 * [MnemoVault — The Imperial Archives](13-mnemovault.md)
+* [MnemoPrompt — The Prompt Arsenal](14-mnemoprompt.md)
 
 ## Living Proof
 
