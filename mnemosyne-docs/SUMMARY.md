@@ -33,3 +33,4 @@
 * [The Resonance Engine — Liquid Prompt & Nexus Graph](16-resonance-engine.md)
 * [Local-First Sovereignty — The Security Model](17-security-sovereignty.md)
 * [Mnemosyne OS as the LLM's Layer 2](18-llm-layer2.md)
+* [Multilanguage — The Language Pack System](19-multilanguage.md)
