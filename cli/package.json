@@ -1,6 +1,6 @@
-﻿{
-  "name": "@mnemosyne/forge",
-  "version": "1.0.0",
+{
+  "name": "@mnemosyne_os/forge",
+  "version": "1.2.1",
   "description": "MnemoForge CLI — The AI Inception Engine for the Mnemosyne Neural OS ecosystem. Scaffold sovereign, AI-governed modules in one command.",
   "main": "dist/cli.js",
   "bin": {
@@ -11,6 +11,10 @@
     "start": "node dist/cli.js",
     "dev": "tsc -w",
     "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
     "mnemosyne",
@@ -25,11 +29,13 @@
     "cursor",
     "sovereign-ai",
     "code-generator",
-    "boilerplate"
+    "boilerplate",
+    "chronicle",
+    "neural-coding"
   ],
   "author": {
     "name": "Tony Trochet",
-    "email": "dev@mnemosyne-os.com",
+    "email": "tony@xpacegems.com",
     "url": "https://www.linkedin.com/in/tony-t-19544650/"
   },
   "license": "MIT",
