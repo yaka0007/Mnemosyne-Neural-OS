@@ -1,0 +1,9 @@
+# Gitignore — Mnemosyne-Neural-OS-public
+
+# Content pipeline local (drafts — ne pas pousser sur GitHub)
+_content/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+*.tmp

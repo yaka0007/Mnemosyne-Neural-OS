@@ -169,3 +169,118 @@ This takes five minutes. It prevents context amnesia and provides a project hist
 
 *Previous: [Anti-Patterns ←](./03-anti-patterns.md)*  
 *Next: [Tools & Setup →](./05-tools-and-setup.md)*
+
+
+---
+
+## Principle 5 — Proactive Complexity Governance
+
+*Added 2026-04-04, from live Neural Coding session.*
+
+### The anti-pattern it fixes
+
+An AI agent executes instructions one at a time. Features are added. The codebase grows. The human eventually notices the complexity and asks for a refactor.
+
+In this model, **the human governs and the AI executes.** That is not Neural Coding.
+
+### The principle
+
+> The AI must proactively signal when a unit of code is approaching unsustainable complexity — before the human notices, and before continuing.
+
+This applies to:
+- Functions exceeding ~100 lines
+- Files exceeding ~400 lines without clear modular separation
+- Logic blocks mixing concerns (prompts + business logic + I/O in the same place)
+
+### The protocol
+
+When the threshold is approaching, the AI pauses and says:
+
+`
+⚠ [functionName] is approaching [N] lines.
+I propose extracting [concern] into lib/[module].ts before continuing.
+Shall I restructure first, or continue adding to the current file?
+`
+
+The human can say "continue" or "restructure first." Either answer is valid. What is not valid is the AI continuing silently.
+
+### Why this matters
+
+A LLM that executes is a tool.  
+A LLM that governs the codebase alongside the human is a **collaborator**.
+
+The difference is whether the AI has internalized the *telos* of the work — not just "make the feature work" but "make the codebase sustainable for the next 10 features."
+
+This principle is the direct application of Neural Coding to software architecture: **the AI as co-steward of quality, not just co-author of features.**
+
+### In practice (real example)
+
+During MnemoForge CLI development, chronicle init grew to 202 lines in a single callback. The refactor — once requested — took 15 minutes and produced 3 clean modules. Had the AI proposed it at line 100, it would have taken 5 minutes and never accumulated. The human would never have needed to notice.
+
+**The goal is for the human to never have to say "faudrais pas refactoriser ça?".**
+
+---
+
+## Principle 6 — The Funnel & the Parallel Mind
+
+*Added 2026-04-04, from live Neural Coding session.*
+
+### The observation
+
+Neural Coding does not proceed linearly. It works like a funnel:
+
+`
+Global vision
+     │
+     ▼  (narrowing)
+Feature target
+     │
+     ▼
+Edge case / bug / detail
+     │
+     ▼
+Fix + verify + commit
+     │
+     ▼  (loop upward)
+Next feature
+`
+
+Each iteration starts broad and ends precise. Then loops back to the broader view.
+
+### The parallel cognition model
+
+While the agent executes at the bottom of the funnel, the human operates at the top.
+
+| Human | Agent |
+|---|---|
+| Thinks about architecture | Implements the current task |
+| Plans how systems connect | Documents and enforces code rules |
+| Evolves the global vision | Ensures the detail is correct |
+| Decides what matters next | Asks when a decision is needed |
+
+Neither blocks the other. This is what makes Neural Coding a form of **parallel intelligence**, not sequential instruction-following.
+
+### The agent's responsibility in this model
+
+The agent must:
+1. **Never wait** to be asked to document — document as it goes
+2. **Surface decisions** that require human input, immediately
+3. **Stay in its lane** (execution, documentation, governance) while the human thinks strategy
+4. **Hold the long-term rules** — not just execute the current sprint
+
+### Living rules (evolutionary, not static)
+
+Rules in Neural Coding are not fixed. They evolve with the project. But they must be:
+- **Well-thought before writing** (not documented as an afterthought)
+- **Versioned** (the chronicle logs when and why a rule changed)
+- **Applied immediately** (not "we should do this later")
+
+The agent is the keeper of the rules. The human validates them.
+
+### What this session produced
+
+- Principle 5: Proactive Complexity Governance (added this session)
+- Principle 6: The Funnel & Parallel Mind (this entry)
+- CLI: 759 → 513 lines (funnel at work: vision → refactor → verify)
+- Architecture: cli.ts → lib/init-flow.ts + lib/providers.ts
+- Rule: grep 'pattern' dist/ before declaring a fix complete

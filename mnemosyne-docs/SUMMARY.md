@@ -38,3 +38,16 @@
 ## Ecosystem
 
 * [MnemoHub — The Mnemosyne Module Store](20-mnemohub.md)
+
+## Neural Coding Handbook
+
+* [What is Neural Coding?](../handbook/01-what-is-neural-coding.md)
+* [Pillar 4 — Resonance](../handbook/11-pillar-4-resonance.md)
+* [The Method and the Machine](../handbook/09-the-method-and-the-machine.md)
+* [The AI Witness](../handbook/10-the-ai-witness.md)
+* [Neural Coding — Live Sessions](../handbook/12-neural-coding-live.md)
+
+### Chronicles
+
+* [Chronicles — Index](../handbook/chronicles/README.md)
+* [The Open Standard Session — 2026-04-04](../handbook/chronicles/CHRONICLE-2026-04-04-the-open-standard-session.md)

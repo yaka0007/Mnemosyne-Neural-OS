@@ -72,3 +72,33 @@ The methodology works not by producing correct outputs, but by giving the practi
 *Not every session is significant. The ones that appear here earned their place.*
 
 `#livesessions` `#neuralcoding` `#realtime` `#methodology` `#yaka` `#antigravity` `#chronicle`
+
+---
+
+## Session — 2026-04-04 · The Proactive Governance Principle
+
+**Context:** MnemoForge CLI — building Resonance v1.2 (multi-profile init, switch, config)
+
+**What happened:** Features were added incrementally over several hours. The chronicle init action grew to 202 lines inside a single .action() callback. The human noticed the complexity, asked for a refactor.
+
+**The insight:**
+
+> *"logiquement cette règle le LLM doit l'appliquer et la proposer à son humain"*
+
+The AI had been executing. The human had to govern. In Neural Coding, that responsibility should be shared — **the AI should signal architectural debt before the human notices it.**
+
+**The rule born from this session:**
+
+> **Proactive Complexity Threshold** — An agent must never write a function exceeding ~100 lines without proposing an extraction and getting acknowledgment.
+
+`
+⚠ [functionName] approaching [N] lines.
+Proposing: extract [concern] → lib/[module].ts
+Continue, or restructure first?
+`
+
+**Outcome:** cli.ts refactored into 3 focused modules. 759 → 678 lines. The chronicle init action: 202 → 40 lines.
+
+**Secondary case study:** Agent crash during session (cancelled file write → corrupted file → view_file tool failure → process deadlock → PC reboot). Recovery via git checkout HEAD. Demonstrated the real value of the pulse.json intent system.
+
+→ [Full Chronicle](./chronicles/CHRONICLE-2026-04-04-proactive-governance.md)
