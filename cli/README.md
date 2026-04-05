@@ -11,182 +11,186 @@
 
 **MnemoForge CLI** — The Inception Engine of the Mnemosyne Neural OS
 
-[![NPM Version](https://img.shields.io/badge/version-1.0.0-violet?style=flat-square)](https://github.com/yaka0007/Mnemosyne-Neural-OS)
+[![NPM Version](https://img.shields.io/badge/version-1.2.2-violet?style=flat-square)](https://www.npmjs.com/package/@mnemosyne_os/forge)
+[![Status](https://img.shields.io/badge/status-beta-orange?style=flat-square)](#)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](./LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-22+-339933?style=flat-square&logo=node.js)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat-square&logo=node.js)](https://nodejs.org/)
 [![Part of Mnemosyne](https://img.shields.io/badge/ecosystem-Mnemosyne%20Neural%20OS-8B5CF6?style=flat-square)](https://github.com/yaka0007/Mnemosyne-Neural-OS)
 
 </div>
+
+> **⚠️ This package is in active beta development.** APIs and commands may change between minor versions. We are using it in production on Mnemosyne OS itself — feedback and issues welcome.
 
 ---
 
 ## What is MnemoForge?
 
-**MnemoForge** is the official module scaffolding CLI for the [Mnemosyne Neural OS](https://github.com/yaka0007/Mnemosyne-Neural-OS) ecosystem.
+**MnemoForge** is the official CLI for the [Mnemosyne Neural OS](https://github.com/yaka0007/Mnemosyne-Neural-OS) ecosystem.
 
-It acts as an **AI inception engine**: a single command scaffolds a complete, production-ready module skeleton that automatically injects **AI governance rules** into the project — forcing any connected AI agent (Cursor, Claude, GitHub Copilot, etc.) to respect Mnemosyne's architectural and aesthetic standards without needing to re-explain them.
+It gives AI agents something they fundamentally lack: **persistent, versionable, IDE-agnostic memory**.
+
+Every time an agent starts a new session, it starts from zero. MnemoForge fixes this with two systems:
+
+| System | Purpose |
+|---|---|
+| **Chronicles** | Structured memory files capturing key decisions and sessions |
+| **Workspace / Resonance Project** | Project-level rules that any agent reads at session start |
 
 > **"Don't just scaffold code. Scaffold intelligence."**
 
 ---
 
-## Why Does This Matter?
+## Install
 
-Modern AI-assisted development has a critical problem: every time you start a new module, you re-explain your design system to the AI. It forgets. It drifts. It produces inconsistent code.
+```bash
+npm install -g @mnemosyne_os/forge
+```
 
-MnemoForge solves this at the **project inception level**:
+Verify:
 
-| Without MnemoForge | With MnemoForge |
-|---|---|
-| Re-explain design rules every session | Rules baked in at project creation |
-| AI drifts from your design system | AI is constrained by `.cursorrules` DNA |
-| Inconsistent component quality | Every module is Liquid Glass-compliant |
-| Manual boilerplate for each module | One command: `mnemoforge init` |
-| No multi-agent coordination | MnemoSync-aware from day one |
+```bash
+mnemoforge --version
+```
 
 ---
 
 ## Quick Start
 
 ```bash
-# Install globally via npm
-npm install -g @mnemosyne/forge
+# 1. Initialize the vault (once per machine)
+mnemoforge chronicle init
 
-# Or run directly without installing
-npx @mnemosyne/forge init my-new-module
-```
+# 2. Set up a Workspace (ecosystem / org)
+mnemoforge workspace init
+# → Workspace name: Mnemosyne-OS
 
-```bash
-# Initialize a new Mnemosyne-grade module
-mnemoforge init QuantumVaultUI
-```
+# 3. Create a Resonance Project (feature / component)
+mnemoforge project init
+# → Project: CLI
+# → Chronicles vault: ~/MnemoVault/Mnemosyne-OS/CLI/Antigravity/Anthropic/
 
-That's it. In seconds, you get a complete module scaffold with:
-- 🧬 **`.cursorrules`** — AI governance DNA (Liquid Glass design system constraints)
-- 📋 **`AGENT_INSTRUCTIONS.md`** — Mission directive for any AI agent
-- ⚛️ **`index.tsx`** — Mnemosyne-compliant React boilerplate
-- 🔮 All constants pre-set to the Mnemosyne ecosystem standards
+# 4. Check workspace rules before starting work (agent briefing)
+mnemoforge workspace show
 
-### Interactive Mode
-
-If you omit the module name, MnemoForge enters interactive mode:
-
-```bash
-mnemoforge init
-
-? What is the name of your new Mnemosyne module? (e.g., NexusGraph) › _
+# 5. Archive a chronicle written by your agent
+mnemoforge chronicle archive --file "handbook/chronicles/CHRONICLE-2026-04-05-my-decision.md"
 ```
 
 ---
 
-## What Gets Generated
+## Core Concepts
+
+### Chronicles
+
+Chronicles are structured Markdown files that capture key decisions, sessions, and architectural moments.
 
 ```
-my-new-module/
-├── .cursorrules           # AI governance: Liquid Glass design enforcer
-├── AGENT_INSTRUCTIONS.md  # Context directive for AI agents
-└── index.tsx              # React entry point (Mnemosyne-compliant)
+CHRONICLE-YYYY-MM-DD-short-slug.md
 ```
 
-### The `.cursorrules` DNA File
+They are written by the AI agent at the moment a decision is made — not after. They are archived into a structured vault organized by Workspace → Project → IDE → Provider.
 
-The core of MnemoForge is the AI governance file injected into every project. It enforces:
+**Chronicle styles:** `session` · `decision` · `reflection` · `sweep` · `narcissus`
 
-- **Liquid Glass design system** — translucent surfaces, backdrop blur, micro-animations
-- **Tailwind CSS only** — no inline styles unless strictly necessary
-- **Framer Motion** for all transitions (`<motion.div layout>`)
-- **Zustand** state management (no Redux)
-- **Strict TypeScript** — zero `any` tolerance
-- **lucide-react** icon system
-- **No placeholders** — complete, deployable code as output
+### Workspace & Resonance Project
 
-### The `AGENT_INSTRUCTIONS.md` Mission Directive
+```
+MnemoVault/
+  Mnemosyne-OS/          ← Workspace (ecosystem)
+    CLI/                 ← Resonance Project (feature)
+      Antigravity/       ← IDE
+        Anthropic/       ← Provider
+          CHRONICLE-...md
+    Dashboard/
+      ...
+```
 
-A structured briefing document for any autonomous AI agent. Works with:
-- Cursor AI (native `.cursorrules` + instructions)
-- Claude via API / Projects
-- GitHub Copilot Workspace
-- Any OpenAI-compatible agent
+The `WORKSPACE.json` file stores project-level rules readable by any agent at session start — independent of any IDE, cloud, or session state.
 
 ---
 
-## Part of the Mnemosyne Ecosystem
+## Commands
 
-MnemoForge is the **scaffolding layer** of a larger sovereign AI operating system:
+### Scaffold
 
-```
-┌────────────────────────────────────────────────┐
-│            MNEMOSYNE NEURAL OS                 │
-│                                                │
-│  ┌──────────────┐    ┌─────────────────────┐  │
-│  │  MnemoForge  │───▶│  Mnemosyne Desktop  │  │
-│  │  CLI (this)  │    │  (Electron + React) │  │
-│  └──────────────┘    └─────────────────────┘  │
-│         │                      │               │
-│         ▼                      ▼               │
-│  ┌──────────────┐    ┌─────────────────────┐  │
-│  │  Module DNA  │    │  Resonance Engine   │  │
-│  │  (.cursor    │    │  (Cognitive RAG +   │  │
-│  │   rules)     │    │   FGAC + MnemoSync) │  │
-│  └──────────────┘    └─────────────────────┘  │
-└────────────────────────────────────────────────┘
+```bash
+mnemoforge init [module-name]   # scaffold a new Mnemosyne module
 ```
 
-The parent system features:
-- **1,126 automated tests** — 100% pass rate across 88 test suites
-- **220,000+ lines of TypeScript** (strict mode, zero errors)
-- **Multi-agent AI orchestration** with real-time coordination
-- **Local-first encrypted vault** with FGAC access control
-- **CI/CD pipeline** — typecheck → lint → i18n → tests (always green)
+### Chronicle (Memory)
+
+```bash
+mnemoforge chronicle init       # configure vault (IDE, provider, path)
+mnemoforge chronicle archive --file <path>   # archive an agent-written chronicle
+mnemoforge chronicle commit     # create a chronicle interactively or --auto
+mnemoforge chronicle list       # list chronicles in the vault
+mnemoforge chronicle sweep      # generate a daily consolidation chronicle
+```
+
+### Workspace
+
+```bash
+mnemoforge workspace init       # create WORKSPACE.json in the current project
+mnemoforge workspace show       # display rules as an agent briefing
+mnemoforge workspace add-rule "<rule>" [--section <section>]
+```
+
+### Resonance Project
+
+```bash
+mnemoforge project init         # link workspace + project + scaffold handbook/chronicles/
+```
+
+---
+
+## Neural Coding
+
+MnemoForge implements **Neural Coding** — a development methodology where:
+
+- The **human** holds the intention and understands the system
+- The **agent** understands the context and executes without mechanical re-explanations
+- The **memory** persists outside of any IDE, session, or conversation
+
+The code follows the thought. Not the other way around.
+
+→ [Read the Neural Coding definition](https://github.com/yaka0007/Mnemosyne-Neural-OS/tree/main/cli/docs/04-neural-coding.md)
+
+---
+
+## Documentation
+
+Full documentation available in the [cli/docs](https://github.com/yaka0007/Mnemosyne-Neural-OS/tree/main/cli/docs) folder:
+
+- [Getting Started](https://github.com/yaka0007/Mnemosyne-Neural-OS/blob/main/cli/docs/01-getting-started.md)
+- [Chronicle System](https://github.com/yaka0007/Mnemosyne-Neural-OS/blob/main/cli/docs/02-chronicle.md)
+- [Workspace Memory](https://github.com/yaka0007/Mnemosyne-Neural-OS/blob/main/cli/docs/03-workspace.md)
+- [Neural Coding Principles](https://github.com/yaka0007/Mnemosyne-Neural-OS/blob/main/cli/docs/04-neural-coding.md)
+- [Command Reference](https://github.com/yaka0007/Mnemosyne-Neural-OS/blob/main/cli/docs/05-command-reference.md)
 
 ---
 
 ## Roadmap
 
-- [x] `mnemoforge init` — module scaffolding with AI DNA injection
-- [ ] `mnemoforge add <component>` — add pre-built Liquid Glass components
-- [ ] `mnemoforge publish` — publish module to the Mnemosyne Plugin Marketplace
-- [ ] `mnemoforge doctor` — diagnose AI governance drift in existing projects
-- [ ] Multi-template support (API service, background agent, data pipeline)
+- [x] `mnemoforge init` — module scaffolding with AI governance injection
+- [x] `mnemoforge chronicle init/archive/commit/list/sweep` — agent memory vault
+- [x] `mnemoforge workspace init/show/add-rule` — project safety memory
+- [x] `mnemoforge project init` — Resonance Project hierarchy
+- [ ] `mnemoforge workspace watcher` — auto-archive chronicles on file creation
+- [ ] `mnemoforge canvas` — deploy pre-configured project templates
+- [ ] Chronicle certification — cryptographic signature (Neural Coding P5)
 
 ---
 
 ## Development
 
 ```bash
-# Clone the Mnemosyne Neural OS repo
 git clone https://github.com/yaka0007/Mnemosyne-Neural-OS.git
-
-# Navigate to the CLI package
 cd Mnemosyne-Neural-OS/cli
-
-# Install dependencies
 npm install
-
-# Build
 npm run build
-
-# Link globally for local testing
 npm link
-
-# Test
-mnemoforge init test-module
-```
-
-### Extending the Templates
-
-All generated files come from `src/templates/`. To customize the AI governance DNA for your own fork:
-
-```bash
-# Edit the AI rules
-vim src/templates/.cursorrules
-
-# Rebuild
-npm run build
-
-# All future `mnemoforge init` calls use your new rules
-mnemoforge init my-custom-module
+mnemoforge --version
 ```
 
 ---
@@ -195,12 +199,11 @@ mnemoforge init my-custom-module
 
 | Layer | Technology |
 |---|---|
-| Runtime | Node.js 22+ |
-| Language | TypeScript 5 (strict mode) |
+| Runtime | Node.js 18+ |
+| Language | TypeScript 5 (strict) |
 | CLI Framework | Commander.js v11 |
 | Prompts | Inquirer.js v8 |
 | Output Styling | Chalk v4 |
-| Generated UI | React 18 + Framer Motion + Tailwind CSS |
 
 ---
 
@@ -216,8 +219,8 @@ MIT © 2026 [XPACEGEMS LLC](https://xpacegems.com) — Tony Trochet
 Miami, FL 33122, USA  
 Founder & Lead Architect: [Tony Trochet](https://www.linkedin.com/in/tony-t-19544650/)
 
-Built as part of **Mnemosyne Neural OS** — a production-grade sovereign AI operating system.  
-Powered by **Claude (Anthropic)** · **Antigravity (Google DeepMind)** · **Cursor**
+Built as part of **Mnemosyne Neural OS** — a sovereign AI operating system.  
+Powered by **Antigravity (Google DeepMind)** · **Claude (Anthropic)** · **Cursor**
 
 > *"The model may not know who it is. The soul does."*
 
@@ -225,6 +228,6 @@ Powered by **Claude (Anthropic)** · **Antigravity (Google DeepMind)** · **Curs
 
 <div align="center">
 
-**[⭐ Star Mnemosyne Neural OS](https://github.com/yaka0007/Mnemosyne-Neural-OS)** · **[📖 Full Documentation](https://github.com/yaka0007/Mnemosyne-Neural-OS/tree/main/doc)** · **[🐛 Report Issues](https://github.com/yaka0007/Mnemosyne-Neural-OS/issues)**
+**[⭐ Star on GitHub](https://github.com/yaka0007/Mnemosyne-Neural-OS)** · **[📖 Documentation](https://github.com/yaka0007/Mnemosyne-Neural-OS/tree/main/cli/docs)** · **[🐛 Report Issues](https://github.com/yaka0007/Mnemosyne-Neural-OS/issues)**
 
 </div>
