@@ -15,6 +15,7 @@
 
 * [Local AI & Ollama](06-local-ai.md)
 * [MCP Server](07-mcp-server.md)
+* [Soul Profiles](09-soul-profiles.md)
 
 ## Philosophy
 

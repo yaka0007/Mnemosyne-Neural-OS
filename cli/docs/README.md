@@ -2,7 +2,7 @@
 
 > **The AI Inception Engine for the Mnemosyne Neural OS ecosystem.**
 
-[![version](https://img.shields.io/badge/version-1.3.10-8B5CF6)](https://www.npmjs.com/package/@mnemosyne_os/forge)
+[![version](https://img.shields.io/badge/version-1.3.12-8B5CF6)](https://www.npmjs.com/package/@mnemosyne_os/forge)
 [![License](https://img.shields.io/badge/License-MIT-green)](https://github.com/yaka0007/Mnemosyne-Neural-OS/blob/main/cli/LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-22%2B-brightgreen)](https://nodejs.org/)
@@ -32,6 +32,7 @@ Every time an AI agent starts a new session, it starts from zero. It forgets:
 | **Workspace** | Project-level rules that any agent reads at session start |
 | **Local AI** | Ollama integration — compresses context before MCP injection |
 | **MCP Server** | `mnemoforge serve` — exposes `write_chronicle` + `get_context` as agent tools |
+| **Soul Profiles** | `mnemoforge soul dex` — inject behavioral archetypes into any IDE |
 
 ## Install
 
@@ -54,8 +55,11 @@ mnemoforge config mcp
 # Start MCP server (for agents)
 mnemoforge serve
 
-# Write a chronicle interactively
-mnemoforge chronicle commit
+# Inject a soul profile into your IDE
+mnemoforge soul dex
+
+# Or directly:
+mnemoforge soul inject --profile architect --ide cursor
 ```
 
 ## Core Concept
