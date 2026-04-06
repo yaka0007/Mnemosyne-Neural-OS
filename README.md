@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
 
 <br/>
 
@@ -17,7 +17,7 @@
 
 <br/>
 
-[![CI](https://github.com/yaka0007/mnemosyne/actions/workflows/ci.yml/badge.svg)](https://github.com/yaka0007/mnemosyne/actions)
+[![CI](https://github.com/yaka0007/Mnemosyne-Neural-OS/actions/workflows/ci.yml/badge.svg)](https://github.com/yaka0007/Mnemosyne-Neural-OS/actions)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript)
 ![Electron](https://img.shields.io/badge/Electron-39-47848f?logo=electron)
 ![React](https://img.shields.io/badge/React-18-61dafb?logo=react)
@@ -28,7 +28,7 @@
 <br/><br/>
 
 [![Download Mnemosyne Beta](https://img.shields.io/badge/📥_Download_Mnemosyne_Beta_(v1.0.0--beta.8)-111827?style=for-the-badge&logo=github)](https://github.com/yaka0007/Mnemosyne-Neural-OS/releases/tag/v1.0.0-beta.8)
-[![MnemoForge CLI](https://img.shields.io/badge/📦_MnemoForge_CLI_(Open_Source)-8b5cf6?style=for-the-badge&logo=npm)](https://github.com/yaka0007/Mnemosyne-Neural-OS/releases/tag/cli-v1.0.0)
+[![MnemoForge CLI](https://img.shields.io/badge/📦_MnemoForge_CLI_v1.3.18_(Open_Source)-8b5cf6?style=for-the-badge&logo=npm)](https://github.com/yaka0007/Mnemosyne-Neural-OS/releases/tag/cli-v1.3.18)
 
 <br/>
 
@@ -211,7 +211,7 @@ Mnemosyne is built on three principles:
 ## Roadmap
 
 - [ ] Public beta release (install-ready `.exe` / `.dmg`)
-- [x] **MnemoForge CLI published on npm** — [`@mnemosyne_os/forge`](https://www.npmjs.com/package/@mnemosyne_os/forge) · `npx @mnemosyne_os/forge init`
+- [x] **MnemoForge CLI v1.3.18 published on npm** — [`@mnemosyne_os/forge`](https://www.npmjs.com/package/@mnemosyne_os/forge) · Soul Protocol · Canvas Rules · Chronicle System · MCP Server
 - [ ] Team features (shared vault, multi-soul coordination)
 - [ ] Self-hosted sync server
 - [ ] Plugin marketplace for community soul profiles
@@ -220,21 +220,26 @@ Mnemosyne is built on three principles:
 
 ## 🔧 MnemoForge CLI — Open Source
 
-The **MnemoForge CLI** is publicly available as a standalone open-source tool.
-It scaffolds Mnemosyne-grade React modules with AI governance DNA injected at inception.
+The **MnemoForge CLI** is the sovereign developer tool of the Mnemosyne ecosystem — giving AI agents persistent memory, behavioral identity, and an automated publish pipeline.
 
 ```bash
-# Run without installing
-npx @mnemosyne_os/forge init MyModule
-
-# Or install globally
 npm install -g @mnemosyne_os/forge
-mnemoforge init MyModule
+mnemoforge
 ```
+
+**Key features:**
+
+| Feature | Command |
+|---|---|
+| 🪬 Soul Protocol — inject behavioral archetypes into your IDE | `mnemoforge soul inject` |
+| 📋 Canvas Rules — living ruleset persisted across sessions | vault-based, auto-applied |
+| 🗂️ Chronicle System — structured AI memory files | `mnemoforge chronicle write` |
+| 🔌 MCP Server — expose vault tools to any agent | `mnemoforge serve` |
+| 🖥️ Responsive dashboard | `mnemoforge` |
 
 [![npm version](https://img.shields.io/npm/v/@mnemosyne_os/forge?color=8b5cf6&label=%40mnemosyne_os%2Fforge)](https://www.npmjs.com/package/@mnemosyne_os/forge)
 
-→ **[View CLI source & documentation](./cli/)** · **[npm package](https://www.npmjs.com/package/@mnemosyne_os/forge)**
+→ **[CLI Documentation](https://mnemosyne-os.gitbook.io/mnemosyne-os-cli)** · **[npm package](https://www.npmjs.com/package/@mnemosyne_os/forge)** · **[Release notes](https://github.com/yaka0007/Mnemosyne-Neural-OS/releases/tag/cli-v1.3.18)**
 
 ---
 
