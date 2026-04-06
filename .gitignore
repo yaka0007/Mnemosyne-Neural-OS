@@ -7,3 +7,6 @@ _content/
 .DS_Store
 Thumbs.db
 *.tmp
+
+# Marketing drafts (private)
+.marketing/
