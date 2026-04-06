@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  docs-check:
+    name: Docs integrity check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check markdown files exist
+        run: |
+          echo "Checking core docs..."
+          test -f README.md && echo "✔ README.md" || (echo "✖ README.md missing" && exit 1)
+          test -f cli/docs/SUMMARY.md && echo "✔ cli/docs/SUMMARY.md" || echo "⚠ cli/docs/SUMMARY.md not found (optional)"
+          echo "All checks passed."
