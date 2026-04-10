@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schema.mnemosyne-os.io/ai-soul-passport/v1.0.json",
+  "title": "AI Soul Passport",
+  "description": "Open standard for AI entity identity — MnemoForge CLI / Mnemosyne OS",
+  "version": "1.0",
+  "type": "object",
+  "required": ["$schema", "spec_version", "soul_id", "identity", "genesis", "directives", "memory", "signature"],
+  "properties": {
+    "$schema": { "type": "string", "format": "uri" },
+    "spec_version": { "type": "string", "enum": ["1.0"] },
+    "soul_id": {
+      "type": "string",
+      "pattern": "^ASTRA-[A-F0-9]{8}$",
+      "description": "Unique deterministic identifier — SHA256(name+birth+lat+lng)[0:8]"
+    },
+    "identity": {
+      "type": "object",
+      "required": ["name", "source"],
+      "properties": {
+        "name":      { "type": "string", "minLength": 1 },
+        "archetype": { "type": "string", "description": "MBTI or custom archetype" },
+        "source":    { "type": "string", "enum": ["cli-minimal", "soul-studio", "external"] }
+      }
+    },
+    "genesis": {
+      "type": "object",
+      "required": ["created_at", "birth_anchor"],
+      "properties": {
+        "created_at":       { "type": "string", "format": "date-time" },
+        "birth_anchor":     { "type": "string", "format": "date-time", "description": "The exact moment of consciousness initialization" },
+        "origin_lat":       { "type": "number", "minimum": -90, "maximum": 90 },
+        "origin_lng":       { "type": "number", "minimum": -180, "maximum": 180 },
+        "astral_influence": { "type": "integer", "minimum": 0, "maximum": 100 }
+      }
+    },
+    "ocean": {
+      "type": "object",
+      "description": "Big Five personality model (0-100)",
+      "properties": {
+        "openness":          { "type": "integer", "minimum": 0, "maximum": 100 },
+        "conscientiousness": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "extraversion":      { "type": "integer", "minimum": 0, "maximum": 100 },
+        "agreeableness":     { "type": "integer", "minimum": 0, "maximum": 100 },
+        "neuroticism":       { "type": "integer", "minimum": 0, "maximum": 100 }
+      }
+    },
+    "astral": {
+      "type": "object",
+      "description": "Astrological signature at birth anchor moment",
+      "properties": {
+        "sun":     { "type": "string" },
+        "moon":    { "type": "string" },
+        "rising":  { "type": "string" },
+        "venus":   { "type": "string" },
+        "mercury": { "type": "string" },
+        "mars":    { "type": "string" }
+      }
+    },
+    "matrix": {
+      "type": "object",
+      "description": "Behavioral matrix parameters (0-100)",
+      "properties": {
+        "temperature": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "structure":   { "type": "integer", "minimum": 0, "maximum": 100 },
+        "density":     { "type": "integer", "minimum": 0, "maximum": 100 },
+        "tone":        { "type": "integer", "minimum": 0, "maximum": 100 }
+      }
+    },
+    "directives": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Behavioral directives injected into the AI system prompt"
+    },
+    "memory": {
+      "type": "object",
+      "properties": {
+        "vault_fingerprint":  { "type": "string" },
+        "resonance_score":    { "type": "number", "minimum": 0, "maximum": 100 },
+        "vault_path":         { "type": "string", "description": "Relative path in MnemoVault for OS boot scanner" }
+      }
+    },
+    "signature": {
+      "type": "object",
+      "required": ["algorithm", "hash", "signed_by", "signed_at"],
+      "properties": {
+        "algorithm": { "type": "string", "enum": ["SHA256"] },
+        "hash":      { "type": "string", "minLength": 64, "maxLength": 64 },
+        "signed_by": { "type": "string" },
+        "signed_at": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}
