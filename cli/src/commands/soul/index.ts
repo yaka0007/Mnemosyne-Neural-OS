@@ -2,9 +2,10 @@ import { Command } from 'commander';
 import chalk from 'chalk';
 import * as fs from 'fs';
 import * as path from 'path';
-import { DEX, getProfile, oceanBar, SoulProfile } from './profiles';
-import { generateSoulMd, getSoulPath } from './generator';
-import { loadVaultConfig, saveVaultConfig } from '../../lib/vault';
+import { DEX, getProfile, oceanBar, SoulProfile } from './profiles.js';
+import { generateSoulMd, getSoulPath } from './generator.js';
+import { loadVaultConfig, saveVaultConfig } from '../../lib/vault.js';
+import { passportCommand } from './passport-cmd.js';
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 const V   = chalk.hex('#8B5CF6').bold;
@@ -31,7 +32,10 @@ function printProfileCard(p: SoulProfile, active = false): void {
 
 // ── soul command ──────────────────────────────────────────────────────────────
 export const soulCommand = new Command('soul')
-  .description('Soul profile system — inject developer archetypes into your AI agent');
+  .description('Soul profile system — inject developer archetypes + AI Soul Passport');
+
+// Register passport subcommand
+soulCommand.addCommand(passportCommand);
 
 // ── soul dex ─────────────────────────────────────────────────────────────────
 soulCommand
