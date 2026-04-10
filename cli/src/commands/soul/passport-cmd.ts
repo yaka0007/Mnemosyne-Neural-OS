@@ -77,9 +77,260 @@ function renderPassportCard(p: import('./passport.js').AiSoulPassport): void {
 
 // ── soul passport command ─────────────────────────────────────────────────────
 export const passportCommand = new Command('passport')
-  .description('AI Soul Passport — universal AI identity standard (open source)');
+  .description('AI Soul Passport — universal AI identity standard (open source)')
+  .action(async () => {
+    await runPassportStudio();
+  });
 
-// ── soul passport create ──────────────────────────────────────────────────────
+// ── Immersive passport studio ─────────────────────────────────────────────────
+async function runPassportStudio(): Promise<void> {
+  const inquirer = await getInquirer();
+  const inq = inquirer as any;
+  const config    = loadVaultConfig();
+  const vaultBase = config?.vaultPath ?? path.join(os.homedir(), 'Documents', 'MnemoVault');
+
+  const printHeader = () => {
+    const bar = '═'.repeat(52);
+    const L = (s: string) => console.log(HL('  ║') + ' ' + s.padEnd(52) + HL('║'));
+    const sep = () => console.log(HL('  ╠' + bar + '╣'));
+
+    console.clear();
+    console.log();
+    console.log(HL('  ╔' + bar + '╗'));
+    L(V2('✦  AI SOUL PASSPORT  —  MNEMOSYNE OS'));
+    L(chalk.gray('The universal identity standard for AI entities.'));
+    sep();
+
+    const all = listPassports(vaultBase);
+    if (all.length === 0) {
+      L(chalk.yellow('  No soul passports found in MnemoVault.'));
+    } else {
+      all.slice(-3).forEach(p => {
+        const valid = (() => { try { return verifyPassport(p) ? OK('✔') : ERR('✖'); } catch { return ERR('?'); } })();
+        L(` ${valid} ${V(p.soul_id)}  ${W(p.identity.name)}  ${chalk.gray(p.identity.archetype ?? '—')}`);
+      });
+      if (all.length > 3) L(chalk.gray(`  … and ${all.length - 3} more`));
+    }
+
+    sep();
+    L(chalk.gray('  OPEN SOURCE · MIT · SHA256 SIGNED'));
+    console.log(HL('  ╚' + bar + '╝'));
+    console.log();
+  };
+
+  // Main navigation loop
+  let running = true;
+  while (running) {
+    printHeader();
+
+    const all = listPassports(vaultBase);
+    const hasPassports = all.length > 0;
+
+    const { action } = await inq.prompt([{
+      type: 'list',
+      name: 'action',
+      message: HL('Soul Passport — what do you want to do?'),
+      choices: [
+        { name: `  ${V2('⬡')}  Genesis Protocol     ${chalk.gray('— create a new soul passport')}`, value: 'create' },
+        new inquirer.Separator(),
+        ...(hasPassports ? [
+          { name: `  ${HL('◈')}  View my passports    ${chalk.gray(`— ${all.length} found in MnemoVault`)}`, value: 'show' },
+          { name: `  ${HL('◈')}  Verify integrity     ${chalk.gray('— SHA256 signature check')}`, value: 'verify' },
+          { name: `  ${HL('◈')}  Export passport      ${chalk.gray('— save to JSON file')}`, value: 'export' },
+        ] : [
+          { name: `  ${chalk.gray('◈  View my passports    — no passports yet')}`, value: '__disabled__', disabled: true },
+        ]),
+        new inquirer.Separator(),
+        { name: `  ${V2('◈')}  Import from Soul Studio ${chalk.gray('— adapt JSON export')}`, value: 'import' },
+        new inquirer.Separator(),
+        { name: `  ${chalk.gray('✕  Exit')}`, value: 'exit' },
+      ],
+    }]);
+
+    switch (action) {
+      case 'create':
+        await runCreate(config, vaultBase, inq);
+        break;
+      case 'show':
+        await runShow(all, inq);
+        break;
+      case 'verify':
+        runVerify(all);
+        await pauseForKey(inq);
+        break;
+      case 'export':
+        await runExport(all, vaultBase, inq);
+        break;
+      case 'import':
+        await runImport(config, vaultBase, inq);
+        break;
+      case 'exit':
+        running = false;
+        console.log(chalk.gray('\n  Exiting Soul Passport studio.\n'));
+        break;
+    }
+  }
+}
+
+// ── Sub-flows ─────────────────────────────────────────────────────────────────
+
+async function pauseForKey(inq: any): Promise<void> {
+  await inq.prompt([{ type: 'input', name: '_', message: chalk.gray('Press Enter to continue...') }]);
+}
+
+async function runCreate(config: any, vaultBase: string, inq: any): Promise<void> {
+  console.log(V('\n  ✦  Genesis Protocol — New Soul Passport\n'));
+  console.log(chalk.gray('  A minimal identity for an AI entity. Takes ~30 seconds.\n'));
+
+  const answers = await inq.prompt([
+    {
+      type: 'input', name: 'name',
+      message: HL('  Entity name (the AI soul):'),
+      default: config?.ide ?? 'Soul',
+      validate: (v: string) => v.trim().length > 0 || 'Name required',
+    },
+    {
+      type: 'input', name: 'archetype',
+      message: HL('  Archetype / MBTI (Enter to skip):'),
+      default: '',
+    },
+    {
+      type: 'input', name: 'directives',
+      message: HL('  Behavioral directives (comma-separated, Enter to skip):'),
+      default: '',
+    },
+    {
+      type: 'list', name: 'gps',
+      message: HL('  Origin GPS:'),
+      choices: [
+        { name: '  Ignore (no GPS)', value: 'none' },
+        { name: '  Enter manually', value: 'manual' },
+      ],
+      default: 'none',
+    },
+  ]);
+
+  let lat: number | undefined, lng: number | undefined;
+  if (answers.gps === 'manual') {
+    const g = await inq.prompt([
+      { type: 'input', name: 'lat', message: HL('  Latitude:'), validate: (v: string) => !isNaN(parseFloat(v)) || 'Must be a number' },
+      { type: 'input', name: 'lng', message: HL('  Longitude:'), validate: (v: string) => !isNaN(parseFloat(v)) || 'Must be a number' },
+    ]);
+    lat = parseFloat(g.lat); lng = parseFloat(g.lng);
+  }
+
+  const directives = answers.directives
+    ? (answers.directives as string).split(',').map((d: string) => d.trim()).filter(Boolean)
+    : [];
+
+  const passport = buildMinimalPassport({
+    name: answers.name.trim(),
+    archetype: answers.archetype.trim() || undefined,
+    directives, lat, lng,
+    vaultConfig: config ?? undefined,
+  });
+
+  console.log(OK('\n  ✔  Passport generated:'));
+  renderPassportCard(passport);
+
+  const { confirm } = await inq.prompt([{
+    type: 'confirm', name: 'confirm',
+    message: HL(`  Save to MnemoVault?`),
+    default: true,
+  }]);
+
+  if (confirm) {
+    const saved = savePassport(passport, vaultBase);
+    console.log(OK(`\n  ✔  Saved: ${saved}`));
+    console.log(chalk.gray('  Mnemosyne OS will detect this passport on next boot.\n'));
+  }
+  await pauseForKey(inq);
+}
+
+async function runShow(all: import('./passport.js').AiSoulPassport[], inq: any): Promise<void> {
+  if (all.length === 1) {
+    renderPassportCard(all[0]);
+    await pauseForKey(inq);
+    return;
+  }
+  const { chosen } = await inq.prompt([{
+    type: 'list', name: 'chosen',
+    message: HL('  Which passport?'),
+    choices: all.map(p => ({
+      name: `  ${V(p.soul_id)}  ${W(p.identity.name)}  ${chalk.gray(p.identity.archetype ?? '—')}`,
+      value: p.soul_id,
+    })),
+  }]);
+  const passport = all.find(p => p.soul_id === chosen);
+  if (passport) renderPassportCard(passport);
+  await pauseForKey(inq);
+}
+
+function runVerify(all: import('./passport.js').AiSoulPassport[]): void {
+  console.log(V('\n  ✦  Soul Passport — Integrity Verification\n'));
+  all.forEach(p => {
+    let valid: boolean;
+    try { valid = verifyPassport(p); } catch { valid = false; }
+    const mark = valid ? OK('  ✔  VALID  ') : ERR('  ✖  INVALID');
+    console.log(`${mark}  ${V(p.soul_id)}  ${W(p.identity.name)}  ${chalk.gray('SHA256')}`);
+  });
+  console.log();
+}
+
+async function runExport(all: import('./passport.js').AiSoulPassport[], _vaultBase: string, inq: any): Promise<void> {
+  let passport = all[all.length - 1];
+  if (all.length > 1) {
+    const { chosen } = await inq.prompt([{
+      type: 'list', name: 'chosen',
+      message: HL('  Which passport to export?'),
+      choices: all.map(p => ({
+        name: `  ${V(p.soul_id)}  ${p.identity.name}`,
+        value: p.soul_id,
+      })),
+    }]);
+    passport = all.find(p => p.soul_id === chosen)!;
+  }
+  const { outFile } = await inq.prompt([{
+    type: 'input', name: 'outFile',
+    message: HL('  Output file path:'),
+    default: `./${passport.soul_id}.passport.json`,
+  }]);
+  fs.writeFileSync(outFile, JSON.stringify(passport, null, 2), 'utf8');
+  console.log(OK(`\n  ✔  Exported: ${path.resolve(outFile)}\n`));
+  await pauseForKey(inq);
+}
+
+async function runImport(config: any, vaultBase: string, inq: any): Promise<void> {
+  const { filePath } = await inq.prompt([{
+    type: 'input', name: 'filePath',
+    message: HL('  Path to Soul Studio JSON export:'),
+  }]);
+
+  if (!fs.existsSync(filePath.trim())) {
+    console.log(ERR(`\n  ✖  File not found: ${filePath}\n`));
+    await pauseForKey(inq);
+    return;
+  }
+
+  let passport: import('./passport.js').AiSoulPassport;
+  try {
+    passport = parsePassport(fs.readFileSync(filePath.trim(), 'utf8'));
+  } catch {
+    try {
+      passport = adaptSoulStudioExport(fs.readFileSync(filePath.trim(), 'utf8'));
+    } catch (e: any) {
+      console.log(ERR(`\n  ✖  Invalid file: ${(e as Error).message}\n`));
+      await pauseForKey(inq);
+      return;
+    }
+  }
+
+  renderPassportCard(passport);
+  const saved = savePassport(passport, vaultBase);
+  console.log(OK(`  ✔  Imported and saved: ${saved}\n`));
+  await pauseForKey(inq);
+}
+
 passportCommand
   .command('create')
   .description('Create a minimal AI Soul Passport interactively')
