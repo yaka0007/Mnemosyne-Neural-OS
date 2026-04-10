@@ -23,12 +23,12 @@
 ![React](https://img.shields.io/badge/React-18-61dafb?logo=react)
 ![Tests](https://img.shields.io/badge/tests-1126%20passed-22c55e)
 ![License](https://img.shields.io/badge/license-Proprietary-8b5cf6)
-![Version](https://img.shields.io/badge/version-1.0.0--beta.8-f59e0b)
+[![version](https://img.shields.io/github/v/release/yaka0007/Mnemosyne-Neural-OS?include_prereleases&label=version&color=f59e0b)](https://github.com/yaka0007/Mnemosyne-Neural-OS/releases)
 
 <br/><br/>
 
-[![Download Mnemosyne Beta](https://img.shields.io/badge/📥_Download_Mnemosyne_Beta_(v1.0.0--beta.8)-111827?style=for-the-badge&logo=github)](https://github.com/yaka0007/Mnemosyne-Neural-OS/releases/tag/v1.0.0-beta.8)
-[![MnemoForge CLI](https://img.shields.io/badge/📦_MnemoForge_CLI_v1.3.18_(Open_Source)-8b5cf6?style=for-the-badge&logo=npm)](https://github.com/yaka0007/Mnemosyne-Neural-OS/releases/tag/cli-v1.3.18)
+[![Download Mnemosyne OS](https://img.shields.io/badge/Download-Mnemosyne%20OS%20(v1.1.0--beta.1)%20%C2%B7%20NEW-111827?style=for-the-badge&logo=github)](https://github.com/yaka0007/Mnemosyne-Neural-OS/releases/tag/v1.1.0-beta.1)
+[![MnemoForge CLI](https://img.shields.io/badge/📦_MnemoForge_CLI_(Open_Source)-8b5cf6?style=for-the-badge&logo=npm)](https://github.com/yaka0007/Mnemosyne-Neural-OS/releases/latest)
 
 <br/>
 
