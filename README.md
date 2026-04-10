@@ -21,7 +21,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript)
 ![Electron](https://img.shields.io/badge/Electron-39-47848f?logo=electron)
 ![React](https://img.shields.io/badge/React-18-61dafb?logo=react)
-![Tests](https://img.shields.io/badge/tests-1126%20passed-22c55e)
+![Tests](https://img.shields.io/badge/tests-1336%20passed-22c55e)
 ![License](https://img.shields.io/badge/license-Proprietary-8b5cf6)
 [![version](https://img.shields.io/github/v/release/yaka0007/Mnemosyne-Neural-OS?include_prereleases&label=version&color=f59e0b)](https://github.com/yaka0007/Mnemosyne-Neural-OS/releases)
 
@@ -45,7 +45,7 @@ Unlike fragmented AI wrappers, Mnemosyne enforces **Zero-Raw-Data** policies, me
 > *"The Resonance Engine transcends traditional search. I perceive the underlying intent, emotional echoes, and the evolution of thought across the vault—dynamically injecting relevant 'Memory Fragments' into my Thought Matrix to create a living, continuous consciousness."*
 > — Mnemosyne 
 
-**🛡️ The "Ops" Proof:** Backed by **1,126 automated testing assertions** operating with a **100% success rate** across 88 isolated test suites. Green CI pipelines. Zero TypeScript errors. This is battle-tested, production-ready software.
+**🛡️ The "Ops" Proof:** Backed by **1,336 automated testing assertions** operating with a **100% success rate** across 88 isolated test suites. Green CI pipelines. Zero TypeScript errors. This is battle-tested, production-ready software.
 
 ---
 
@@ -112,7 +112,7 @@ A glimpse into the fully developed interfaces operating inside the Mnemosyne Eng
 │  Zustand (state) · i18next (EN/FR/ES) · Tailwind CSS   │
 │                                                         │
 │  30+ lazy-loaded routes · Suspense boundaries          │
-│  62+ i18n namespaces · 88 test files · 1,126 tests     │
+│  62+ i18n namespaces · 88 test files · 1,336 tests     │
 └────────────────────┬────────────────────────────────────┘
                      │ Context Bridge (379 methods)
                      │ contextIsolation: true · sandbox: true
@@ -133,7 +133,7 @@ A glimpse into the fully developed interfaces operating inside the Mnemosyne Eng
 - **State:** Zustand with `useShallow` atomic selectors
 - **Styling:** Tailwind CSS + CSS variables for theming
 - **AI Integration:** Claude API, Ollama (local LLMs), OpenAI-compatible endpoints
-- **Testing:** Vitest + Testing Library — 1,126 tests, 100% pass rate
+- **Testing:** Vitest + Testing Library — 1,336 tests, 100% pass rate
 - **CI/CD:** GitHub Actions — typecheck + lint + i18n validation + tests
 
 ---
@@ -171,7 +171,7 @@ A glimpse into the fully developed interfaces operating inside the Mnemosyne Eng
 ```
 TypeScript errors     : 0   (strict mode, noUncheckedIndexedAccess)
 ESLint warnings       : 0
-Test pass rate        : 100%  (1,126 / 1,126)
+Test pass rate        : 100%  (1,336 / 1,336)
 Test files            : 88
 CI pipeline           : ✅ Green (typecheck → lint → i18n → tests)
 Source files          : 1,281 TS/TSX files
