@@ -1,0 +1,97 @@
+# On every published GitHub Release:
+# - Tag `cli-*`  → all `.../releases/tag/cli-…` URLs in README point to this release (CLI badge + release notes links).
+# - Tag `v*` + digit (e.g. v1.1.0-beta.1) → "Download Mnemosyne OS" badge image + link point to this release (installer/setup).
+# Other tag patterns are ignored.
+
+name: Sync README release badges
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-readme-release-badges
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Patch README from release tag
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const tag = context.payload.release.tag_name;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const baseRelease = `https://github.com/${owner}/${repo}/releases/tag/${tag}`;
+
+            const path = 'README.md';
+            let readme = fs.readFileSync(path, 'utf8');
+            const original = readme;
+
+            const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+            if (tag.startsWith('cli-')) {
+              const cliUrl = new RegExp(
+                `https://github\\.com/${esc(owner)}/${esc(repo)}/releases/tag/cli-[^\\s)]+`,
+                'g'
+              );
+              readme = readme.replace(cliUrl, baseRelease);
+              core.info(`CLI release: replaced cli release URLs → ${baseRelease}`);
+            } else if (/^v\d/.test(tag)) {
+              const displayVer = tag.startsWith('v') ? tag : `v${tag}`;
+              const message = `Mnemosyne OS (${displayVer}) · NEW`;
+              const badgeUrl =
+                'https://img.shields.io/static/v1?' +
+                new URLSearchParams({
+                  label: 'Download',
+                  message,
+                  color: '111827',
+                  logo: 'github',
+                  style: 'for-the-badge',
+                }).toString();
+
+              const downloadLine = `[![Download Mnemosyne OS](${badgeUrl})](${baseRelease})`;
+              const downloadRe = /\[\!\[Download Mnemosyne OS\]\([^\]]*\)\]\([^\)]*\)/;
+              if (!downloadRe.test(readme)) {
+                core.setFailed('README.md: expected a [![Download Mnemosyne OS]...](...) line');
+                return;
+              }
+              readme = readme.replace(downloadRe, downloadLine);
+              core.info(`OS/setup release: Download badge → ${tag}`);
+            } else {
+              core.info(`Tag "${tag}" — no README badge rule (use cli-* or v1…). Skipping.`);
+              return;
+            }
+
+            if (readme === original) {
+              core.info('README unchanged (already up to date).');
+              return;
+            }
+            fs.writeFileSync(path, readme);
+
+      - name: Commit and push if README changed
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet README.md 2>/dev/null; then
+            echo "No README changes to commit."
+            exit 0
+          fi
+          git add README.md
+          git commit -m "docs(readme): sync release badges for ${RELEASE_TAG}"
+          git push origin HEAD:main
