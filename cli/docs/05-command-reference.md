@@ -16,11 +16,36 @@ mnemoforge --help           # Show all commands
 
 ## mnemoforge init
 
-Scaffold a new Mnemosyne-grade module.
+Scaffold a new Mnemosyne-grade module. Also bootstraps the Resonance Bridge data directory.
 
 ```bash
 mnemoforge init [module-name]
 ```
+
+After init, `apps/mnemosync/data/` is ready with your agent's pulse file and an empty `messages/` inbox.
+
+---
+
+## mnemoforge resonance
+
+Multi-agent coordination via the Resonance Bridge protocol.
+
+```bash
+# See all agents and their state
+mnemoforge resonance agents
+
+# Read your inbox
+mnemoforge resonance inbox --agent <id> [--unread-only] [--mark-read]
+
+# Send a message to another agent
+mnemoforge resonance send --from <id> --to <id> --message "<text>" [--type <type>] [--priority <level>] [--zone <path>]
+
+# Read/update a pulse
+mnemoforge resonance pulse [--agent <id>]
+mnemoforge resonance pulse --set-agent <id> --status <status> --zone <path> --intent "<text>"
+```
+
+> Full documentation: [Resonance Bridge](09-resonance-bridge.md)
 
 ---
 

@@ -2,7 +2,7 @@
 
 > **The AI Inception Engine for the Mnemosyne Neural OS ecosystem.**
 
-[![version](https://img.shields.io/badge/version-1.3.18-8B5CF6)](https://www.npmjs.com/package/@mnemosyne_os/forge)
+[![version](https://img.shields.io/badge/version-1.2.1-8B5CF6)](https://www.npmjs.com/package/@mnemosyne_os/forge)
 [![License](https://img.shields.io/badge/License-MIT-green)](https://github.com/yaka0007/Mnemosyne-Neural-OS/blob/main/cli/LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-22%2B-brightgreen)](https://nodejs.org/)
@@ -30,9 +30,6 @@ Every time an AI agent starts a new session, it starts from zero. It forgets:
 |---|---|
 | **Chronicles** | Structured memory files capturing key decisions and sessions |
 | **Workspace** | Project-level rules that any agent reads at session start |
-| **Local AI** | Ollama integration — compresses context before MCP injection |
-| **MCP Server** | `mnemoforge serve` — exposes `write_chronicle` + `get_context` as agent tools |
-| **Soul Profiles** | `mnemoforge soul dex` — inject behavioral archetypes into any IDE |
 
 ## Install
 
@@ -46,20 +43,11 @@ npm install -g @mnemosyne_os/forge
 # Initialize the vault
 mnemoforge chronicle init
 
-# Configure local AI (Ollama)
-mnemoforge config ollama
+# Check workspace rules before starting work
+mnemoforge workspace show
 
-# Auto-configure MCP for your IDE (Cursor, Claude Desktop…)
-mnemoforge config mcp
-
-# Start MCP server (for agents)
-mnemoforge serve
-
-# Inject a soul profile into your IDE
-mnemoforge soul dex
-
-# Or directly:
-mnemoforge soul inject --profile architect --ide cursor
+# Archive a chronicle written by your agent
+mnemoforge chronicle archive --file "path/to/CHRONICLE-2026-04-05-my-decision.md"
 ```
 
 ## Core Concept

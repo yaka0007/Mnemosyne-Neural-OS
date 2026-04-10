@@ -15,8 +15,7 @@
 
 * [Local AI & Ollama](06-local-ai.md)
 * [MCP Server](07-mcp-server.md)
-* [Soul Profiles](09-soul-profiles.md)
-* [Canvas Rules — Assisted Pair Protocol](10-canvas-rules.md)
+* [Resonance Bridge — Multi-Agent Protocol](09-resonance-bridge.md)
 
 ## Philosophy
 

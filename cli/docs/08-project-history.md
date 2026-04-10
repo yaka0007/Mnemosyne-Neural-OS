@@ -6,6 +6,7 @@ MnemoForge evolves fast. Every version ships new capabilities for the Mnemosyne 
 
 | Version | Date       | Highlights                                              |
 |---------|------------|---------------------------------------------------------|
+| v1.4.0  | 2026-04-09 | **Resonance Bridge** — `mnemoforge resonance` (agents/inbox/send/pulse/watch) + `@mnemosync` VS Code Chat Participant |
 | v1.3.10 | 2026-04-06 | `config mcp` auto-setup by IDE + bump                  |
 | v1.3.9  | 2026-04-06 | MCP server live — `write_chronicle` · `list_chronicles` · `get_vault_info` |
 | v1.3.8  | 2026-04-06 | `serve` stub + profile spacing fix                     |
@@ -35,11 +36,17 @@ Added the Local AI pipeline (Ollama), the config dashboard, and the interactive 
 ### v1.3.9+ — MCP & Agent Integration
 The MCP server makes MnemoForge a **first-class citizen in AI agent ecosystems**. Agents can now read and write memory without human intervention.
 
+### v1.4.0 — Resonance Bridge (Multi-Agent Protocol)
+The CLI gains a full inter-agent communication layer. `mnemoforge resonance` lets agents send messages, read their inbox, update their pulse, and watch for real-time changes — all via a file-based protocol, zero infrastructure. The `@mnemosync` VS Code Chat Participant injects Resonance context directly into Cursor AI's chat. `mnemoforge init` now bootstraps the Resonance data directory automatically.
+
+> *"Your AI agents, finally talking to each other."*
+
 ## What's Next
 
 | Milestone | Target | Description |
 |---|---|---|
-| `get_context(query)` | v1.4 | Ollama-compressed chronicle retrieval for MCP |
-| Cursor extension | v1.4 | One-click chronicle writing from sidebar |
-| Chronicle certification | v1.5 | Cryptographic signature for memory integrity |
-| Multi-vault sync | v1.6 | Share chronicles across machines and teams |
+| `@resonance-bridge/sdk` | v2.0 | Extract Resonance protocol as a standalone npm package for any agent stack |
+| `serve` MCP live | v1.5 | `write_chronicle` + `get_context` tools via Ollama compression |
+| Human-in-the-loop approval | v1.5 | C2 approval workflow in Mnemosyne OS dashboard |
+| Chronicle certification | v2.0 | Cryptographic signature for memory integrity |
+| Multi-vault sync | v2.0 | Share chronicles across machines and teams |
