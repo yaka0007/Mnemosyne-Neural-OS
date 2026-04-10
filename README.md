@@ -275,11 +275,21 @@ The **Mnemosyne Neural OS platform** — including the desktop application, Reso
 
 <div align="center">
 
+### Maintainer — live GitHub stats (year to date)
+
+<!--PROFILE_STATS_START-->
+![GitHub contributions 2026](https://img.shields.io/static/v1?label=contributions%202026&message=%E2%80%94&color=22c55e&logo=github&style=flat-square)
+![Commits 2026](https://img.shields.io/static/v1?label=commits%202026&message=%E2%80%94&color=0369a1&logo=github&style=flat-square)
+*Includes private repos · updated weekly by Actions*
+<!--PROFILE_STATS_END-->
+
+<br/>
+
 *"The model may not know who it is. The soul does."*
 
 <br/>
 
-![GitHub last commit](https://img.shields.io/github/last-commit/yaka0007/mnemosyne)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/yaka0007/mnemosyne)
+[![last commit](https://img.shields.io/github/last-commit/yaka0007/Mnemosyne-Neural-OS/main?label=last%20commit)](https://github.com/yaka0007/Mnemosyne-Neural-OS/commits/main/)
+[![commit activity](https://img.shields.io/github/commit-activity/m/yaka0007/Mnemosyne-Neural-OS?label=commit%20activity)](https://github.com/yaka0007/Mnemosyne-Neural-OS/graphs/commit-activity)
 
 </div>
