@@ -76,4 +76,13 @@ MnemoForge CLI is the command-line interface to the Mnemosyne Neural OS — a so
 - **Resonance** is the multi-agent coordination layer
 - **MnemoSync** enables real-time agent state sharing
 
-Neural Coding is not just a methodology. It is the operating philosophy of the entire system.
+### Layer 2: The Omni-Orchestrator (Super Developer Cockpit)
+
+The ultimate expression of Neural Coding is building an OS that acts as a **Layer 2 above the LLMs and standard IDEs**. 
+
+In this architectural trinity, the human is strictly the **Director** operating from a visual cockpit (Mnemosyne OS). They do not write code; they deploy **Blueprints** (packaged instructions and SDK rules). 
+- **The Execution (Layer 1):** IDEs like Cursor acting as the autonomous Builder, physically typing the code.
+- **The Routing Engine:** MnemoForge CLI moving JSON tasks and feedback loops via the Resonance Bridge.
+- **The Verifying Soul:** A specialized Auditor AI (like Antigravity) that strictly validates the Builder's output for UI/UX, formatting, translations (i18n), and robustness *before* presenting the final product to the human.
+
+Neural Coding is not just a methodology. It is the operating philosophy of the entire intelligent system.
