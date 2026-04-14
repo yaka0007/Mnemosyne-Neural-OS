@@ -20,6 +20,7 @@
 ## Philosophy
 
 * [Neural Coding Principles](04-neural-coding.md)
+* [The Mnemosyne Thesis — Autonomous Memory](10-mnemosyne-thesis.md)
 
 ## Reference
 
