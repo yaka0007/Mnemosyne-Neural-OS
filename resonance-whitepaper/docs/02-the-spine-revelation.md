@@ -82,6 +82,12 @@ The LLM Judge recognizes this "Organic Doubt" as a high-value safety mechanism, 
 > *(See asset: `technical-memory.png`)*
 ![B2B Resilience Example](../assets/technical-memory.png)
 
+#### 4. The Ultimate A/B Test: Repetition Degeneration vs. Determinateness
+During live testing, we conducted a brutal A/B test on the engine. We disabled the Spines, forcing the LLM to rely solely on local TF-IDF vector retrieval.
+*   **Without Spines (Dimensional Collapse):** Devoid of structural logic, the generator model suffered a catastrophic *Repetition Penalty Failure*. It fell into an infinite loop of bullet points (`* No streaming services are mentioned... * No streaming services...`), incapable of synthesizing the fragmented vector chunks. It hallucinated due to cognitive starvation.
+*   **With Spines (Instant Recovery):** By simply toggling the `Spines (V3)` switch back ON—without changing the strict Persona parameters—the LLM instantly recovered. It used the chronological Spine to map precise dates and flawlessly executed mathematical temporal reasoning (`* Adidas: Jan 10th. * Laces: Jan 24th... 24 - 10 = 14 days`).
+*   **Conclusion:** Spines do not just "retrieve" memory; they provide the mathematical scaffolding that prevents an LLM from collapsing under its own generative weight.
+
 
 ### Academic & Theoretical Validation (2025/2026)
 Our empirical benchmark results securely align with cutting-edge academic breakthroughs in temporal AI processing. We consider Mnemosyne OS to be the first production-ready *implementation* of these theoretical concepts:
