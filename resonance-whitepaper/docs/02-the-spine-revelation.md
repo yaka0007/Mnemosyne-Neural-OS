@@ -134,20 +134,22 @@ The AI didn't just answer 500 questions correctly; in 199 scenarios (nearly 40%)
 ![LLM Reasoning Response](../assets/response-example.png)
 
 ```mermaid
-graph LR
-    A[User Query] --> B{Ontological Router}
-    B --> C[Numeric Spine]
-    B --> D[Temporal Spine]
-    B --> E[Session Narratives]
-    B --> F[Session Digests]
-    C & D & E & F --> G[MEMORY CHRONICLES\nContext Injection]
-    G --> H[LLM Generation]
-    H --> I[LLM Judge]
-    I --> J{Standard Score\n79.4%}
-    I --> K{MnemoScore™\n237.8%}
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryColor': '#0d1117', 'lineColor': '#00f0ff', 'edgeLabelBackground': '#0d1117', 'fontFamily': 'monospace'}}}%%
+flowchart LR
+    Q(["🔍 Query"]) --> R{"🧭 Ontological\nRouter"}
+    R --> MC["📋 MEMORY\nCHRONICLES"]
+    MC --> G(["⚡ LLM\nGeneration"])
+    G --> J["🔬 LLM Judge\nIndependent"]
+    J --> SA(["📊 Standard\n79.4%"])
+    J --> MS(["🏆 MnemoScore™\n237.8%"])
 
-    style J fill:#225522,stroke:#00cc66,stroke-width:2px;
-    style K fill:#225566,stroke:#00aaff,stroke-width:2px;
+    style Q fill:#001a2e,stroke:#00f0ff,color:#00f0ff
+    style R fill:#0a0a1a,stroke:#a855f7,stroke-width:3px,color:#a855f7
+    style MC fill:#001a2e,stroke:#00f0ff,stroke-width:2px,color:#e2e8f0
+    style G fill:#001a2e,stroke:#00f0ff,color:#e2e8f0
+    style J fill:#0a0a1a,stroke:#a855f7,stroke-width:2px,color:#a855f7
+    style SA fill:#003320,stroke:#00d084,stroke-width:2px,color:#00d084
+    style MS fill:#001a30,stroke:#3b82f6,stroke-width:2px,color:#60a5fa
 ```
 
 ## Telemetry & Cognitive Proofs

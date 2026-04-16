@@ -11,6 +11,63 @@ This is the Resonance Cascade.
 
 ## The Six Layers
 
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryColor': '#0d1117', 'primaryTextColor': '#00f0ff', 'primaryBorderColor': '#00f0ff', 'lineColor': '#00f0ff', 'secondaryColor': '#0d1117', 'tertiaryColor': '#0d1117', 'background': '#0d1117', 'mainBkg': '#0d1117', 'nodeBorder': '#00f0ff', 'clusterBkg': '#0d1117', 'titleColor': '#00f0ff', 'edgeLabelBackground': '#0d1117', 'fontFamily': 'monospace'}}}%%
+flowchart TD
+    Q(["`🔍 **User Query**`"]) --> L1
+
+    L1["`**LAYER 1**
+    Cognitive Routing
+    Ontological Triage`"]
+
+    L1 --> L2["`**LAYER 2**
+    Multi-Spine Injection
+    Context Assembly`"]
+
+    L2 --> L3{"`**LAYER 3**
+    Resonance Delta
+    Coherence Check`"}
+
+    L3 -->|"Low Δ — Coherent"| RECALL["`✅ **Recall Mode**
+    Confident Synthesis`"]
+    L3 -->|"High Δ — Conflicting"| FRICTION["`⚠️ **Cognitive Friction**
+    Calibrated Uncertainty`"]
+
+    RECALL --> L4
+    FRICTION --> L4
+
+    L4["`**LAYER 4**
+    Governed Generation
+    Constrained Persona`"]
+
+    L4 --> L5["`**LAYER 5**
+    LLM Judge Cascade
+    Independent Validation`"]
+
+    L5 --> L6{"`**LAYER 6**
+    Zero-Trust Firewall
+    Abstention Protocol`"}
+
+    L6 -->|"Memory found"| OUT(["`💡 **Rich Response**
+    Standard + MnemoScore™`"])
+    L6 -->|"Uncertain / Poisoned"| ABS(["`🛡️ **Abstention**
+    Honest Silence`"])
+
+    style Q fill:#001a2e,stroke:#00f0ff,stroke-width:2px,color:#00f0ff
+    style L1 fill:#001a2e,stroke:#00f0ff,stroke-width:2px,color:#e2e8f0
+    style L2 fill:#001a2e,stroke:#00f0ff,stroke-width:2px,color:#e2e8f0
+    style L3 fill:#0a0a1a,stroke:#a855f7,stroke-width:3px,color:#a855f7
+    style RECALL fill:#003320,stroke:#00d084,stroke-width:2px,color:#00d084
+    style FRICTION fill:#2a1500,stroke:#f59e0b,stroke-width:2px,color:#f59e0b
+    style L4 fill:#001a2e,stroke:#00f0ff,stroke-width:2px,color:#e2e8f0
+    style L5 fill:#001a2e,stroke:#00f0ff,stroke-width:2px,color:#e2e8f0
+    style L6 fill:#0a0a1a,stroke:#a855f7,stroke-width:3px,color:#a855f7
+    style OUT fill:#003320,stroke:#00d084,stroke-width:2px,color:#00d084
+    style ABS fill:#1a0010,stroke:#f43f5e,stroke-width:2px,color:#f43f5e
+```
+
+---
+
 ### Layer 1 — Cognitive Routing (Ontological Triage)
 
 Before any memory is accessed, a dedicated reasoning model analyzes the user's intent and performs **semantic triage**. The query is routed to the correct domain of memory — not by keyword matching, not by vector proximity, but by genuine categorical reasoning.
@@ -44,14 +101,21 @@ It switches mode.
 **Why this matters**: A system that always produces a confident answer is dangerous. In B2B contexts, a confident wrong answer is worse than an honest doubt. The Resonance Delta Check prevents false certainty from entering the output.
 
 ```mermaid
-graph TD
-    A[Memory Retrieved] --> B{Resonance Delta?}
-    B -->|Low Delta — High Coherence| C[Recall Mode\nConfident Synthesis]
-    B -->|High Delta — Conflicting Signals| D[Cognitive Friction Mode\nCalibrated Uncertainty]
-    C --> E[LLM Generation]
-    D --> E
-    style C fill:#225522,stroke:#00cc66
-    style D fill:#553322,stroke:#ff8800
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryColor': '#0d1117', 'lineColor': '#a855f7', 'edgeLabelBackground': '#0d1117', 'fontFamily': 'monospace'}}}%%
+flowchart LR
+    MEM(["`📦 Memory Retrieved`"]) --> CHK{"`Δ Score`"}
+    CHK -->|"Δ low — coherent"| RC["`✅ Recall Mode
+    Confident Answer`"]
+    CHK -->|"Δ high — conflict"| CF["`⚠️ Cognitive Friction
+    Express Uncertainty`"]
+    RC --> GEN(["`⚡ LLM Generation`"])
+    CF --> GEN
+
+    style MEM fill:#001a2e,stroke:#00f0ff,color:#00f0ff
+    style CHK fill:#0a0a1a,stroke:#a855f7,stroke-width:3px,color:#a855f7
+    style RC fill:#003320,stroke:#00d084,stroke-width:2px,color:#00d084
+    style CF fill:#2a1500,stroke:#f59e0b,stroke-width:2px,color:#f59e0b
+    style GEN fill:#001a2e,stroke:#00f0ff,color:#00f0ff
 ```
 
 ---
@@ -77,6 +141,24 @@ The Judge evaluates two distinct dimensions:
 This dual evaluation is what produces both the **Standard Accuracy score** and the **MnemoScore™ Over-Delivery metric** simultaneously.
 
 **Why this matters**: Single-model self-evaluation is a known failure mode. A model that generated an answer will tend to find it coherent. Independent evaluation removes this bias structurally.
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryColor': '#0d1117', 'lineColor': '#00f0ff', 'edgeLabelBackground': '#0d1117', 'fontFamily': 'monospace'}}}%%
+flowchart LR
+    GEN(["`⚡ Generator LLM`"]) --> ANS["`Answer`"]
+    ANS --> JDG["`🔬 Judge LLM
+    Independent Model`"]
+    JDG --> SA["`📊 Standard Score
+    Correct / Incorrect`"]
+    JDG --> MS["`🏆 MnemoScore™
+    Richness multiplier`"]
+
+    style GEN fill:#001a2e,stroke:#00f0ff,color:#00f0ff
+    style ANS fill:#001a2e,stroke:#00f0ff,color:#e2e8f0
+    style JDG fill:#0a0a1a,stroke:#a855f7,stroke-width:3px,color:#a855f7
+    style SA fill:#003320,stroke:#00d084,color:#00d084
+    style MS fill:#001a30,stroke:#3b82f6,color:#60a5fa
+```
 
 ---
 
