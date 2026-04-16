@@ -84,10 +84,33 @@ baseline_total         = 500 questions × 1.0 (simple correct answer per questio
 ---
 
 ```mermaid
-pie title Standard Accuracy: Mnemosyne vs Industry SOTA
-    "Industry SOTA (Vector RAG) ~72%" : 72
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryColor': '#0d1117', 'fontFamily': 'monospace', 'pie1': '#374151', 'pie2': '#00d084', 'pie3': '#1e293b', 'pieStrokeColor': '#0d1117', 'pieTextColor': '#e2e8f0', 'pieLegendTextColor': '#e2e8f0'}}}%%
+pie title Standard Accuracy — Mnemosyne vs Industry SOTA
+    "Industry SOTA Vector RAG ~72%" : 72
     "Mnemosyne Spine Advantage +7.4%" : 7.4
     "Remaining gap" : 20.6
+```
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'primaryColor': '#0d1117', 'lineColor': '#00f0ff', 'edgeLabelBackground': '#0d1117', 'fontFamily': 'monospace'}}}%%
+flowchart LR
+    subgraph CLASSIC ["❌  Standard Vector RAG"]
+        A1(["Query"]) -->|"Stochastic\nSimilarity"| B1(["Semantic Noise"])
+        B1 --> C1(["~72% SOTA"])
+    end
+    subgraph MNEMOSYNE ["✅  Mnemosyne OS — Spine Engine"]
+        A2(["Query"]) -->|"Deterministic\nSpine Injection"| B2(["MEMORY CHRONICLES"])
+        B2 --> C2(["237.8% MnemoScore™"])
+    end
+
+    style A1 fill:#1a0010,stroke:#f43f5e,color:#f43f5e
+    style B1 fill:#1a0010,stroke:#f43f5e,color:#f43f5e
+    style C1 fill:#1a0010,stroke:#f43f5e,stroke-width:3px,color:#f43f5e
+    style A2 fill:#003320,stroke:#00d084,color:#00d084
+    style B2 fill:#001a2e,stroke:#00f0ff,stroke-width:2px,color:#e2e8f0
+    style C2 fill:#003320,stroke:#00d084,stroke-width:3px,color:#00d084
+    style CLASSIC fill:#120008,stroke:#f43f5e,stroke-width:1px,color:#f43f5e
+    style MNEMOSYNE fill:#001810,stroke:#00d084,stroke-width:1px,color:#00d084
 ```
 
 ### Official MnemoLab 01 Results Summary
