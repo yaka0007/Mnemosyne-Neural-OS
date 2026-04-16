@@ -7,3 +7,4 @@
 * [II. The Spine Revelation (Benchmark)](docs/02-the-spine-revelation.md)
 * [III. Matryoshka Elasticity (Phase 2)](docs/03-matryoshka-elasticity.md)
 * [IV. Unstoppable Cognitive Firewall](docs/04-the-cognitive-firewall.md)
+* [V. The Resonance Cascade (Defense-in-Depth)](docs/05-the-resonance-cascade.md)
