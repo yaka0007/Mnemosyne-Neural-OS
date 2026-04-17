@@ -302,6 +302,51 @@ The pre-computed sub-index is the architectural decision that makes the Cascade 
 
 ---
 
+## Test Environment: Hardware Reproducibility
+
+> [!IMPORTANT]
+> The benchmark results documented below were produced on **a consumer-grade laptop**,
+not a cloud inference cluster, not a dedicated AI server. Every computation ran on local hardware, under real-world memory pressure.
+
+### Machine Specification
+
+| Component | Specification |
+|---|---|
+| **GPU (Primary)** | NVIDIA GeForce RTX 4050 Laptop GPU |
+| GPU VRAM | 6.0 GB dedicated · 17.9 GB shared |
+| **GPU (Integrated)** | Intel Arc |
+| **NPU** | Intel AI Boost (on-chip Neural Processing Unit) |
+| **RAM** | 32 GB DDR · **89% utilized during the benchmark run** (28.1 / 31.4 GB) |
+| **Storage** | SSD NVMe (primary system drive) |
+| **OS** | Windows 11 |
+| **Driver** | NVIDIA 32.0.15.9579 · DirectX 12 (FL 12.2) |
+
+### Why This Matters
+
+The ICLR 2025 benchmark was run with **28.1 GB of 32 GB RAM in active use** — the system was not running in a clean-room environment with reserved headroom. Electron, the Mnemosyne OS application, the Jina embedding calls, Gemini Flash generation, and the full 500-question MnemoLab benchmark loop all executed simultaneously, on the same machine, under ordinary desktop conditions.
+
+The RTX 4050 Laptop GPU was **at 1% GPU utilization, 46°C** during the run — the retrieval and scoring pipeline does not require GPU acceleration. The architecture runs entirely on **CPU + NVMe I/O + cloud API calls**, making it deployable on any modern laptop without a discrete GPU requirement.
+
+```
+Resource profile during benchmark (N=500):
+  RAM        : 89% (28.1 / 32 GB)  — real-world pressure
+  GPU (RTX)  : 1% utilization — not required
+  NPU        : 0% — available for future local LLM acceleration
+  NVMe I/O   : 2% — Spine reads are sub-millisecond
+  Network    : ~26 Mbps down / 0.7 Mbps up (WiFi)
+```
+
+**Benchmark infrastructure stack (single machine, no cluster):**
+- `Mnemosyne OS Desktop` (Electron + React) — memory engine
+- `Jina Cloud` (API) — 1024D semantic embeddings
+- `Gemini Flash` (API) — generation + judge
+- `MnemoLab` (in-app) — benchmark orchestrator
+
+> *A system that beats the academic SOTA by +115 points, running on a laptop, under 89% RAM load, with no dedicated AI infrastructure.*
+> *This is the Local-First thesis made concrete.*
+
+---
+
 ## Phase 2 Validation: LongMemEval ICLR 2025 — Full Run
 
 > *Benchmark: LongMemEval Official — 500 questions · N=500 (complete) · Mode: Strict · Judge: Flexible*
