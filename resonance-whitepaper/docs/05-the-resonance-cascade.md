@@ -338,10 +338,10 @@ Live resource profile — captured mid-run (N≈250–500):
   RAM (system)             : 93% — 29.1 / 31.4 GB     → stable, no growth
   NVMe SSD (G: C:)         : 1%                        → sub-ms Spine reads
 
-  GPU 1 — NVIDIA RTX 4050  : 15% utilization @ 47°C
+  GPU 1 — NVIDIA RTX 4050  : 15% utilization @ 48°C
   GPU VRAM (dedicated)     : 2.8 / 6.0 GB (47%)        → stable, no VRAM leak
   GPU memory (total)       : 3.1 / 23.9 GB
-  GPU temp                 : 47°C                       → thermally comfortable
+  GPU temp                 : 48°C — stable end-to-end   → no thermal throttling
 
   GPU 0 — Intel Arc        : 22%                       → Electron UI rendering
   NPU 0 — Intel AI Boost   : 0%                        → available headroom
