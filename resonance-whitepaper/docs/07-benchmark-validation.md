@@ -255,6 +255,22 @@ The optimal range for **Flexible Judge + N=500** is experimentally established a
 
 ---
 
+## ADDENDUM : The "Degenerate Loop" Discovery (Live Field Notes)
+
+*Transparency Update from the Off-Grid Stress Tests.*
+
+Initial LongMemEval runs showed an anomalous 99.4% retrieval success rate. Deep edge-compute telemetry analysis of these results revealed a fascinating architectural behavioral threshold that we call **Deterministic Paralysis**.
+
+When the JSON Spine's topological leash (the 'Doubt' threshold) is tightened too aggressively, the stochastic engine does not hallucinate—instead, it completely shuts down its generative capacity out of strict compliance. It enters a degenerate safety loop, repeatedly outputting a rigid confirmation string rather than synthesizing a natural response. 
+
+The 99.4% retrieval was mechanically accurate (the agent perfectly navigated the AST graph to the exact correct JSON nodes), but it was generatively stifled by the severity of the constraints. 
+
+**Current Beta Objective:** We are actively calibrating the exact tension point between the deterministic JSON leash and the stochastic generative freedom. True Neural Coding requires the agent to respect the structural graph without being paralyzed by it. 
+
+We are not hiding our failures. We are documenting the boundaries of local AI orchestration. Updates on the `Doubt` and `TOP-K` calibration algorithms will be pushed to the DevVault as soon as they are stabilized in the current off-grid tests.
+
+---
+
 ## Conclusion: The Doctrine
 
 > *"We do not build memory systems that remember. We build memory systems that survive."*
